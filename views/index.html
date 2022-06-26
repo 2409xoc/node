@@ -1,9 +1,75 @@
 <html dir="ltr" lang="en">
 <head>
     <link rel="stylesheet" href="/css/main.css">
+    <title>pseudohenry</title>
 </head>
+<style>
+    body {
+        overflow: hidden;
+    }
+    .grow {
+        font-size: 36px;
+    }
+    ::selection {
+        background: transparent;
+    }
+</style>
 <body>
-    <%- include("./partials/header.html") %>
-    <h1>HEY</h1>
+    <!-- <%- include("./partials/header.html") %> -->
+    <main>
+        <div style="position: relative; bottom: 0.75em; display: flex; align-items: center; justify-content: center; height: 100%;">
+            <div id="intro" style="display: flex; position: relative; bottom: 3em; opacity: 0; font-size: 150%;">
+                <h3>welcome </h3>
+                <h3><br>to</h3>
+            </div>
+            <h1 class="grow" id="grow">pseudohenry</h1>
+            <div id="desc" style="position: relative; top: 5em; opacity:0">
+                <p>my dumbass corner on the internet.</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        function refill() {
+            var intro = document.getElementById("intro");
+            var desc = document.getElementById("desc");
+            var opacity = 0;
+            var intID = setInterval(function() {
+                if (opacity < 1) {
+                    opacity += 0.045;
+                    desc.style.opacity = opacity;
+                    intro.style.opacity = opacity;
+                }
+                else {
+                    clearInterval(intID);
+                }
+            }, 100);
+        }
+        function growAnimation() {
+            var ps = document.getElementById("grow");
+            let start = new Date().getTime();
+            while (true) {
+                var i=3.5, count=0, rot=0, c=0;
+                var zs=200, ze=300;
+                var max = window.innerWidth/11;
+                var c = (window.getComputedStyle(ps, null).getPropertyValue('font-size'));
+                var iv = setInterval(function () {
+                    c = String(parseInt(c) + i) + "px";
+                    ps.style.fontSize = c;
+                    if (count >= ze && parseInt(ps.style.fontSize) <= max) {
+                        clearInterval(iv);
+                    }
+                    if (count >= zs && count <= ze) {
+                        i -= 0.135;
+                        ps.style.transform = `rotate(${rot}deg)`;
+                        rot += (360/Math.abs(ze-zs));
+                    }
+                    count += 1;
+                }, 10);
+                break;
+            }
+        }
+        growAnimation();
+        setTimeout(refill, 3500)
+    </script>
 </body>
 </html>

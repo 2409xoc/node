@@ -1,4 +1,15 @@
-body {
+main {
     margin: auto;
     max-width: 60%;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    padding-top: 0.75em;
+    font-size: 90%;
+}
+
+header {
+    margin:auto;
+    max-width: 90%;
 }

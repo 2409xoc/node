@@ -6,7 +6,7 @@ var { marked } = require("marked");
 
 var app = express();
 var hostname = "localhost";
-var port = 4000;
+var port = 3000;
 
 app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})
 app.engine('html', require('ejs').renderFile);
@@ -83,6 +83,6 @@ app.use("*", (req, res) => {
     }
 
     else if (res.status(404)) {
-        res.render("404.html")
+        res.render("partials/404.html")
     }
 })
