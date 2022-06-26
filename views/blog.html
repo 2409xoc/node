@@ -1,0 +1,12 @@
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include("./partials/header.html") %>
+    <% lists.forEach(function(post) { %> 
+        <a href=<%= post.attributes.link %> ><%= post.attributes.title %> </a>
+        <br>
+    <% }); %>
+</body>
+</html>
