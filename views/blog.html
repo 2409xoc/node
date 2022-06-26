@@ -4,9 +4,11 @@
 </head>
 <body>
     <%- include("./partials/header.html") %>
+    <main>
     <% lists.forEach(function(post) { %> 
         <a href=<%= post.attributes.link %> ><%= post.attributes.title %> </a>
         <br>
     <% }); %>
+    </main>
 </body>
 </html>

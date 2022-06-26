@@ -38,7 +38,6 @@ function read(req, res) {
                     if (ll.length == files.length) {
                         dates.sort(function(a,b){return Date.parse(a) - Date.parse(b)});
                         dates.reverse();
-                        console.log(dates);
                         dates.forEach(function(d) {
                             ll.forEach(function(p) {
                                 if (p.attributes.date == d) {
@@ -60,7 +59,6 @@ app.use("/blog/*", (req,res) => {
         read(req, res);
     }
     else {
-        console.log(req.baseUrl);
         var path = "." + req.baseUrl + ".md";
         fs.readFile(path, "utf8", function(err, data) {
             if (err) {
@@ -83,6 +81,6 @@ app.use("*", (req, res) => {
     }
 
     else if (res.status(404)) {
-        res.render("partials/404.html")
+        res.render("partials/404.html", {link: req.baseUrl})
     }
 })

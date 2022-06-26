@@ -1,6 +1,25 @@
 @font-face {
-    font-family: Courier;
-    src: url(cour.ttf);
+    font-family: "Courier New";
+    src: url(fonts/cour.ttf);
+}
+
+@font-face {
+    font-family: "Courier New";
+    src: url(fonts/cour-bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Courier New";
+    src: url(fonts/cour-italic.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Courier New";
+    src: url(fonts/cour-bold-italic.ttf);
+    font-weight: bold;
+    font-style: italic;
 }
 
 main {
@@ -8,9 +27,14 @@ main {
     max-width: 60%;
 }
 
+main a {
+    color: black;
+    font-weight: bold;
+}
+
 
 body {
-    font-family: Courier, monospace;
+    font-family: "Courier New";
     padding-top: 0.75em;
     font-size: 90%;
 }
