@@ -1,6 +1,6 @@
 @font-face {
     font-family: Courier;
-    src: url(src/courier.TTF)
+    src: url(cour.ttf);
 }
 
 main {
@@ -10,7 +10,7 @@ main {
 
 
 body {
-    font-family: Courier;
+    font-family: Courier, monospace;
     padding-top: 0.75em;
     font-size: 90%;
 }
