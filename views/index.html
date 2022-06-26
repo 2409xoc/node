@@ -22,7 +22,7 @@
                 <h3>welcome </h3>
                 <h3><br>to</h3>
             </div>
-            <h1 class="grow" id="grow">henry</h1>
+            <h1 class="grow" id="grow">pseudohenry</h1>
             <div id="desc" style="position: relative; top: 5em; opacity:0">
                 <p>my dumbass corner on the internet.</p>
             </div>
@@ -50,7 +50,7 @@
             while (true) {
                 var i=3.5, count=0, rot=0, c=0;
                 var zs=200, ze=300;
-                var max = window.innerWidth/11;
+                var max = window.innerWidth/12;
                 var c = (window.getComputedStyle(ps, null).getPropertyValue('font-size'));
                 var iv = setInterval(function () {
                     c = String(parseInt(c) + i) + "px";
@@ -68,8 +68,10 @@
                 break;
             }
         }
-        growAnimation();
-        setTimeout(refill, 3500)
+        window.onload = (event) => {
+            growAnimation();
+            setTimeout(refill, 3500)
+        };
     </script>
 </body>
 </html>
