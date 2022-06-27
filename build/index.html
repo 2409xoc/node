@@ -22,7 +22,7 @@
 </style>
 <body>
     <main>
-        <div id="centered" style="position: relative; bottom: 0.75em; display: flex; align-items: center; justify-content: center; height: 100%;">
+        <div id="centered" style="position: relative; margin: auto; bottom: 0.75em; display: flex; align-items: center; justify-content: center; height: 100%">
             <div id="intro" style="display: flex; position: relative; bottom: 3em; opacity: 0; font-size: 150%;">
                 <h3>welcome </h3>
                 <h3><br>to</h3>
@@ -43,22 +43,12 @@
         </div>
     </main>
     <script>
-        function pushup() {
-            height = "100%";
-            var cdiv = document.getElementById("centered");
-            var hchange = setInterval(function() {
-                if (parseInt(height) >= 30) {
-                    height = String(parseInt(height) - 0.01) + "%";
-                    cdiv.style.height = height;
-                }
-            }, 10);
-        }
         function refill() {
             var intro = document.getElementById("intro"), info = document.getElementById("info"), desc = document.getElementById("desc");
             var opacity = 0;
             var intID = setInterval(function() {
                 if (opacity < 1) {
-                    opacity += 0.01;
+                    opacity += 0.00125;
                     desc.style.opacity = opacity;
                     intro.style.opacity = opacity;
                     info.style.opacity = opacity*2;
@@ -66,7 +56,7 @@
                 else {
                     clearInterval(intID);
                 }
-            }, 50);
+            }, 25);
         }
         function Animate() {
             var ps = document.getElementById("grow");
@@ -82,7 +72,6 @@
                     if (count >= ze && parseInt(ps.style.fontSize) <= max) {
                         clearInterval(iv);
                         setTimeout(refill, 150);
-                        setTimeout(pushup, 150);
                     }
                     if (count >= zs && count <= ze) {
                         i -= 0.135;
