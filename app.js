@@ -155,7 +155,9 @@ function subpages(_cb) {
             }
         }
         else {
-            bpath = `${bdir}/${nn.split("/public/")[1]}`;
+            if (nn.includes("/public/")) {
+                bpath = `${bdir}/${nn.split("/public/")[1]}`;
+            }
             console.log(`copying src from public: ${nn}`);
             fse.copySync(rpath, bpath, {overwrite: true, recursive: true}, (err) => {
                 if (err) {
