@@ -64,7 +64,7 @@
             while (true) {
                 var i=3.5, count=0, rot=0, c=0;
                 var zs=200, ze=300;
-                var max = window.innerWidth/12;
+                var max = window.innerWidth/15;
                 var c = (window.getComputedStyle(ps, null).getPropertyValue('font-size'));
                 var iv = setInterval(function () {
                     c = String(parseInt(c) + i) + "px";
@@ -84,7 +84,8 @@
             }
         }
         window.onload = (event) => {
-            setTimeout(Animate, 750);
+            document.getElementById("grow").style.fontSize = `${window.innerWidth/15}px`;
+            setTimeout(refill, 1000);
         };
     </script>
 </body>

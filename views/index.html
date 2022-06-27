@@ -84,7 +84,8 @@
             }
         }
         window.onload = (event) => {
-            setTimeout(Animate, 1000);
+            document.getElementById("grow").style.fontSize = `${window.innerWidth/15}px`;
+            setTimeout(refill, 1000);
         };
     </script>
 </body>
