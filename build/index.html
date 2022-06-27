@@ -48,7 +48,7 @@
             var opacity = 0;
             var intID = setInterval(function() {
                 if (opacity < 1) {
-                    opacity += 0.00125;
+                    opacity += 0.05;
                     desc.style.opacity = opacity;
                     intro.style.opacity = opacity;
                     info.style.opacity = opacity*2;
@@ -56,7 +56,7 @@
                 else {
                     clearInterval(intID);
                 }
-            }, 25);
+            }, 50);
         }
         function Animate() {
             var ps = document.getElementById("grow");
