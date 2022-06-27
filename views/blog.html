@@ -1,14 +1,25 @@
 <html lang="en" dir="ltr">
 <head>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <title>blog</title>
 </head>
 <body>
     <%- include("./partials/header.html") %>
     <main>
+        <center>
+        <h1 style="line-height: 0;">Posts</h1>
     <% lists.forEach(function(post) { %> 
-        <a href=<%= post.attributes.link %> ><%= post.attributes.title %> </a>
-        <br>
+        <div class="post-link">
+            <% if (post.attributes.date && post.attributes.title) { %>
+                <p style="display: block; width: 30em; max-width: 30em"><%= post.attributes.date %> <a href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
+                <% if (post.attributes.description) { %> 
+                    <p class="description">[<%= post.attributes.description %>]</p>
+                <% } %>
+            <% } %>
+        </div>
     <% }); %>
+        </center>
     </main>
 </body>
 </html>

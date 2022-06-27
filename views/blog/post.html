@@ -1,0 +1,22 @@
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include("../partials/header.html") %>
+    <main>
+        <h1 style="line-height: 0"><%= title %></h1>
+        <div class="articleinf">
+        <p class="date">[<%= date %>]</p>
+        <% if ((count/200) < 1) { %>
+            <p class="count">[<%= count*60/200 %> second read][<%= count%> words]</p>
+        <%} else { %>
+            <p class="count">[<%= count/200 %> minute read][<%= count%> words</p>
+        <% } %>
+        </div>
+        <%- body %>
+    </main>
+</body>
+</html>

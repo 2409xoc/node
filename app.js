@@ -3,6 +3,7 @@ var fs = require("fs");
 var fm = require("front-matter");
 var path = require("path");
 var { marked } = require("marked");
+var count = require("html-word-count");
 
 var app = express();
 var hostname = "localhost";
@@ -41,7 +42,9 @@ function read(req, res) {
                         dates.forEach(function(d) {
                             ll.forEach(function(p) {
                                 if (p.attributes.date == d) {
-                                    lists.push(p);
+                                    if (lists.indexOf(p) <= -1) {
+                                        lists.push(p);
+                                    }
                                 }
                             })
                         })
@@ -67,8 +70,13 @@ app.use("/blog/*", (req,res) => {
             }
             else {
                 var c = fm(data);
-                var body = marked.parse(c.body); 
-                res.render("post.html", {title: c.attributes.title, data: body});
+                var body = marked.parse(c.body);
+                if (c.attributes.layout && (fs.existsSync(`views/blog/${c.attributes.layout}.html`))) {
+                        res.render(`blog/${c.attributes.layout}.html`, {title: c.attributes.title, date: c.attributes.date, body: body, count: count(body)});
+                    }
+                else {
+                    res.render("blog/post.html", {title: c.attributes.title, date: c.attributes.date, body: body, count: count(body)});
+                }
             }
         })
     }

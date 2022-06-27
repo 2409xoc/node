@@ -4,7 +4,11 @@
     "express": "^4.18.1",
     "front-matter": "^4.0.2",
     "fs": "^0.0.1-security",
+    "html-word-count": "^2.0.0",
+    "markdown-magic": "^2.6.0",
+    "markdown-magic-wordcount": "^0.0.2",
     "marked": "^4.0.17",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "words-count": "^2.0.2"
   }
 }

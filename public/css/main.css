@@ -24,22 +24,37 @@
 
 main {
     margin: auto;
-    max-width: 80%;
+    max-width: 60%;
 }
-
-main a {
-    color: black;
-    font-weight: bold;
-}
-
 
 body {
     font-family: "Courier New";
-    padding-top: 0.75em;
-    font-size: 90%;
+    position: relative;
+    bottom: 0.5em;
+    font-size: 90%; 
+}
+
+body a {
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
 }
 
 header {
-    margin:auto;
-    max-width: 90%;
+    margin: auto;
+    max-width: 95%;
+    display: flex;
+    font-size: 90%;
+}
+
+header h1,h2,h3 {
+    display: inline-block;
+    align-self: flex-end;
+    padding-right: 1em;
+}
+
+header .sub {
+    position: relative;
+    align-self: flex-end;
+    bottom: 0.25em;
 }
