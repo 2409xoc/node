@@ -155,6 +155,7 @@ function subpages(_cb) {
             }
         }
         else {
+            bpath = `${bdir}/${nn.split("/public/")[1]}`;
             console.log(`copying src from public: ${nn}`);
             fse.copySync(rpath, bpath, {overwrite: true, recursive: true}, (err) => {
                 if (err) {
@@ -193,7 +194,7 @@ function posts(_cb) {
 async function build() {
     read(function() {
         moddir(function() {
-            console.log(`directory ${config.dev.builddir.split("./")[1]} already exists, rebuilding.`);
+            console.log(`directory ${config.dev.builddir.split("./")[1]} - rebuilding`);
             console.log(`creating directory ${config.dev.builddir.split("./")[1]}.`);
             setTimeout(function() {
                     subpages(function() {

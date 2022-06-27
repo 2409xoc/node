@@ -8,8 +8,8 @@ const config = {
         "blog": ["/views/blog.html", ["lists", "headers"]],
         "": ["/views/index.html"],
         "about": ["/views/about.html"],
-        "css": ["/public/css"],
-        "assets": ["/public/assets"]
+        "css": ["/public/src/css"],
+        "assets": ["/public/src/assets"]
     }
 }
 

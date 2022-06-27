@@ -1,14 +1,13 @@
 .post-link {
     display: inline-block;
     line-height: 0em;
-    font-size: 95%;
 }
 
 .description {
     position: relative;
     top: 0.25em;
     max-width: 30em;
-    font-size: 92.5%;
+    font-size: 95%;
     font-weight: lighter;
 }
 
