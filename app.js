@@ -213,6 +213,8 @@ if (process.argv.length > 1) {
         build();
     }
     else {
-        app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})
+        read(function() {
+            app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})
+        })
     }
 }
