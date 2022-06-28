@@ -13,10 +13,32 @@
     }
     .grow {
         font-size: 4em;
+	position: relative;
+	top: 0.5em;
     }
     ::selection {
         background: transparent;
     }
+    @media (max-width: 1200px) {
+	.grow {
+	    font-size: 2em;
+	}
+    }
+    @media (max-width: 600px) {
+	.grow {
+	    font-size: 1.5em;
+	}
+    }
+    @media (max-width: 200px) {
+	.grow {
+	    font-size: 1em;
+	    position: relative;
+	    left: 3em;
+	    top: -1.5em;
+	    text-align: center;
+	}
+    }
+
 </style>
 <body>
     <main>

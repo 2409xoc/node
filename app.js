@@ -183,7 +183,7 @@ function posts(_cb) {
         else {
             var tdata = fs.readFileSync(`./views/blog/post.html`, "utf-8");
         }
-	var contents = ejs.render(tdata, {post: c, body: body, count: count(body), headers: headers});
+	var contents = ejs.render(tdata, {post: post, body: marked.parse(post.body), count: count(post.body), headers: headers});
         fs.writeFile(`${path}/index.html`, contents, err => {
             if (err) {
                 throw err;
