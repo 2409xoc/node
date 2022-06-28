@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/blog.css">
-    <title><%= title %></title>
+    <title><%= post.attributes.title %></title>
+    <% if (post.attributes.description) { %>
+    <meta description="<%= post.attributes.description %>">
+    <% } %>
 </head>
 <body>
     <%- include(headers) %>
     <main>
         <div class="data">
-            <h1 style="line-height: 0"><%= title %></h1>
+            <h1 style="line-height: 0"><%= post.attributes.title %></h1>
             <div class="a-info">
-                <p class="date">[<%= date %>]</p>
+                <p class="date">[<%= post.attributes.date %>]</p>
                 <% if ((count/200) < 1) { %>
                     <p class="count">[<%= count*60/200 %> second read][<%= count%> words]</p>
                 <%} else { %>

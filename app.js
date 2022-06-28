@@ -78,10 +78,10 @@ app.use("/blog/*", (req,res) => {
                 var c = fm(data);
                 var body = marked.parse(c.body);
                 if (c.attributes.layout && (fs.existsSync(`views/blog/${c.attributes.layout}.html`))) {
-                        res.render(`blog/${c.attributes.layout}.html`, {title: c.attributes.title, date: c.attributes.date, body: body, count: count(body), headers: headers});
+			res.render(`blog/${c.attributes.layout}.html`, {post: c, body: body, count: count(body), headers:headers});
                     }
                 else {
-                    res.render("blog/post.html", {title: c.attributes.title, date: c.attributes.date, body: body, count: count(body), headers: headers});
+		    res.render(`blog/post.html`, {post: c, body: body, count: count(body), headers:headers}); 
                 }
             }
         })
@@ -183,7 +183,7 @@ function posts(_cb) {
         else {
             var tdata = fs.readFileSync(`./views/blog/post.html`, "utf-8");
         }
-        var contents = ejs.render(tdata, {title: post.attributes.title, date: post.attributes.date, body: marked.parse(post.body), count: count(post.body), headers:headers});
+	var contents = ejs.render(tdata, {post: c, body: body, count: count(body), headers: headers});
         fs.writeFile(`${path}/index.html`, contents, err => {
             if (err) {
                 throw err;

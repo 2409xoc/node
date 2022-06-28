@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (post.attributes.description) { %>
+	    <meta description="<%= post.attributes.description %>">
+    <% } %>
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/blog.css">
-    <title><%= title %></title>
+    <title><%= post.attributes.title %></title>
 </head>
 <body>
     <%- include(headers) %>
     <main>
         <center>
-        <h2 style="line-height: 0;"><%=title %></h2>
+        <h2 style="line-height: 0;"><%= post.attributes.title %></h2>
         </center>
         <%- body %>
     </main>
