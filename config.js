@@ -9,7 +9,6 @@ const config = {
         "": ["/views/index.html"],
         "about": ["/views/about.html"],
         "css": ["/public/src/css"],
-        "assets": ["/public/src/assets"]
     }
 }
 

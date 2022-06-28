@@ -6,10 +6,11 @@ var { marked } = require("marked");
 var count = require("html-word-count");
 var ejs = require("ejs");
 var fse = require("fs-extra");
+var app = express();
+
 const config = require("./config");
 const { callbackify } = require("util");
 const { createBrotliCompress } = require("zlib");
-var app = express();
 
 var headers = __dirname + "/views/partials/header.html"
 var hostname = "localhost", port=3000;
