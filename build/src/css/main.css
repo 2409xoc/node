@@ -1,13 +1,12 @@
-main {
+html, body {
+    height: 100%;
+    width: 100%;
     margin: auto;
-    max-width: 60%;
+    font-family: monospace;
 }
 
-body {
-    font-family: monospace;
-    position: relative;
-    bottom: 0.5em;
-    font-size: 125%;
+html {
+    font-size: 1.25em;
 }
 
 body a {
@@ -16,11 +15,14 @@ body a {
     color: black;
 }
 
+main {
+    margin: auto;
+    max-width: 80%;
+}
 header {
     margin: auto;
     max-width: 95%;
     display: flex;
-    font-size: 90%;
 }
 
 header h1,h2,h3 {
@@ -33,4 +35,18 @@ header .sub {
     position: relative;
     align-self: flex-end;
     bottom: 0.25em;
+}
+
+@media (max-width: 600px) {
+    header .main {
+        float: none;
+        width: 100%;
+    }
+    header h3 {
+        position: relative;
+        bottom: calc(3em - 1.5vh);
+    }
+    html {
+        font-size: 1em;
+    }
 }
