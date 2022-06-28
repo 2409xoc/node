@@ -12,28 +12,20 @@
         overflow: hidden;
     }
     .grow {
-        font-size: 36px;
+        font-size: 3em;
     }
     ::selection {
         background: transparent;
     }
-    main {
-        max-width: 80%;
-    }
 </style>
 <body>
     <main>
-        <div id="centered" style="position: relative; margin: auto; bottom: 0.75em; display: flex; align-items: center; justify-content: center; height: 100%">
-            <div id="intro" style="display: flex; position: relative; bottom: 3em; opacity: 0; font-size: 150%;">
-                <h3>welcome </h3>
-                <h3><br>to</h3>
-            </div>
-            <h1 class="grow" id="grow">pseudohenry</h1>
-            <div id="desc" style="position: relative; top: 4.5em; right:1em;opacity:0">
-                <p>my personal corner of stupid<sup>TM</sup>. </p>
-            </div>
+        <div id="centered" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; position: relative; right:4vw ">
+            <p style="padding-right: 0.5vw;">welcome</p>
+            <p style="padding-right: 0.5vw;"><br>to</p>
+            <h1 class="grow" id="grow" style="opacity: 1;">pseudohenry</h1>
         </div>
-        <div id="info" style="margin: auto; max-width: 60%; position: relative; bottom: 4em; opacity: 0">
+        <div id="info" style="opacity: 0;">
             <center>
                 <h2 style="line-height: 25%"><u>MY STUFF</u></h2>
                 <p><a href="/blog/">blog:</a> repository for unstructured, stupid rants. </p>
@@ -45,13 +37,11 @@
     </main>
     <script>
         function refill() {
-            var intro = document.getElementById("intro"), info = document.getElementById("info"), desc = document.getElementById("desc");
+            var info = document.getElementById("info")
             var opacity = 0;
             var intID = setInterval(function() {
                 if (opacity < 1) {
-                    opacity += 0.05;
-                    desc.style.opacity = opacity;
-                    intro.style.opacity = opacity;
+                    opacity += 0.025;
                     info.style.opacity = opacity*2;
                 }
                 else {
@@ -61,14 +51,14 @@
         }
         function Animate() {
             var ps = document.getElementById("grow");
-            let start = new Date().getTime();
             while (true) {
-                var i=3.5, count=0, rot=0, c=0;
-                var zs=200, ze=300;
-                var max = window.innerWidth/15;
+                var i=0.125, count=0, rot=0, c=0;
+                var zs=100, ze=150;
+                var max = 10;
                 var c = (window.getComputedStyle(ps, null).getPropertyValue('font-size'));
                 var iv = setInterval(function () {
-                    c = String(parseInt(c) + i) + "px";
+                    c = String(parseInt(c) + i) + "vw";
+                    console.log(c);
                     ps.style.fontSize = c;
                     if (count >= ze && parseInt(ps.style.fontSize) <= max) {
                         clearInterval(iv);
@@ -84,9 +74,10 @@
                 break;
             }
         }
+
         window.onload = (event) => {
-            document.getElementById("grow").style.fontSize = `${window.innerWidth/15}px`;
-            setTimeout(refill, 1000);
+            setTimeout(refill, 350);
+            //document.getElementById("grow").style.fontSize = `${window.innerWidth/15}px`;
         };
     </script>
 </body>

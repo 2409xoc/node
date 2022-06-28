@@ -1,24 +1,14 @@
-.post-link {
+.display-post {
     display: inline-block;
-    line-height: 0em;
 }
 
-.description {
+.desc {
     position: relative;
-    top: 0.25em;
-    max-width: 30em;
-    font-size: 95%;
-    font-weight: lighter;
+    bottom: 1em;
+    max-width: 50vw;
 }
 
-.post-link a {
-    display: inline-block;
-    padding-left: 1em;
-    width: 6em;
-    max-width: 6em;
-}
-
-.post-link a:hover {
+.display-post a:hover {
     text-decoration: underline;
 }
 
@@ -32,7 +22,7 @@
     line-height: 2;
 }
 
-.articleinf {
+.a-info {
     height: 1em;
     position: relative;
     bottom: 1em;

@@ -13,11 +13,11 @@
         <center>
         <h1 style="line-height: 0;">Posts</h1>
     <% lists.forEach(function(post) { %> 
-        <div class="post-link">
+        <div class="display-post">
             <% if (post.attributes.date && post.attributes.title) { %>
-                <p style="display: block; width: 30em; max-width: 30em"><%= post.attributes.date %> <a href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
+                <p><%= post.attributes.date %> <a href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
                 <% if (post.attributes.description) { %> 
-                    <p class="description">[<%= post.attributes.description %>]</p>
+                    <p class="desc">[<%= post.attributes.description %>]</p>
                 <% } %>
             <% } %>
         </div>

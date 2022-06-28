@@ -10,14 +10,16 @@
 <body>
     <%- include(headers) %>
     <main>
-        <h1 style="line-height: 0"><%= title %></h1>
-        <div class="articleinf">
-        <p class="date">[<%= date %>]</p>
-        <% if ((count/200) < 1) { %>
-            <p class="count">[<%= count*60/200 %> second read][<%= count%> words]</p>
-        <%} else { %>
-            <p class="count">[<%= count/200 %> minute read][<%= count%> words</p>
-        <% } %>
+        <div class="data">
+            <h1 style="line-height: 0"><%= title %></h1>
+            <div class="a-info">
+                <p class="date">[<%= date %>]</p>
+                <% if ((count/200) < 1) { %>
+                    <p class="count">[<%= count*60/200 %> second read][<%= count%> words]</p>
+                <%} else { %>
+                    <p class="count">[<%= count/200 %> minute read][<%= count%> words</p>
+                <% } %>
+            </div>
         </div>
         <%- body %>
     </main>
