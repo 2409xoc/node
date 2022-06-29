@@ -32,7 +32,7 @@ This site is definitely an upgrade to my last couple sites where I used PHP as a
 
 <br/>
 
-**ps[1]:** if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a rate that **should** be pretty obvious).
+**ps[1]:** if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a pretty simple rate)
 
 **ps[2]:** a lot of the hyperlinks don't truly work ***yet*** (06-29-2022) as those subpages currently don't have any content (should be fixed within the next couple of days).
     
