@@ -25,13 +25,45 @@
         <div class="data">
             <h1 style="line-height: 0">rewrite</h1>
             <div class="a-info">
-                <p class="date">[06-27-2022]</p>
+                <p class="date">[06-29-2022]</p>
                 
-                    <p class="count">[0 second read][0 words]</p>
+                    <p class="count">[2.025 minute read][405 words]</p>
                 
             </div>
         </div>
-        
+        <p>Welcome to the blog section of <strong>pseudohenry</strong>. Here, I write about whatever first comes to mind.</p>
+<p>To serve this site, I&#39;m using a node application that compiles to a static site and my VPS server pulls that static site from Github every <em>x</em> amount of minutes using a crontab command (currently, x=1 - allowing me to see changes faster).</p>
+<p>Everything within the blog system of my Node app is pretty standard (if not slightly inefficient):</p>
+<ul>
+<li><a href="https://expressjs.com/">express</a> server</li>
+<li><a href="https://www.npmjs.com/package/ejs">ejs</a> as a templater</li>
+<li><a href="https://nodejs.org/api/path.html">path</a> and <a href="https://nodejs.dev/learn/the-nodejs-fs-module">fs</a> for simple file management</li>
+<li><a href="https://www.npmjs.com/package/front-matter">front-matter</a> and <a href="https://www.npmjs.com/package/marked">marked</a> for markdown parsing to the ejs template</li>
+<li><a href="https://www.npmjs.com/package/html-word-count">html-word-count</a> for the <em><strong>posh</strong></em> counting of words</li>
+</ul>
+<p>Essentially, building the static site requires much of the same process (just with generated html). The steps required are (for a fresh build):</p>
+<ol>
+<li>create build directory (/build/)</li>
+<li>copy the /public/ folder to /build/ (containing srcs: css and assets)</li>
+<li>read a list of subpages, and build their directories within /build/ recursively</li>
+<li>read index page for each subpage (found in views) and generate html from its ejs template</li>
+<li>for blog posts:<ol>
+<li>read each blog markdown file (found in /blog/)</li>
+<li>find ejs layout page (usually /views/blog.html)</li>
+<li>compile blog markdown file into html and move it to /build/blog/{post_title}/index.html</li>
+</ol>
+<ul>
+<li>create this directory recursively if it doesn&#39;t exist</li>
+</ul>
+</li>
+</ol>
+<p>Pretty simple stuff, although, I&#39;m pretty positive the way I&#39;m approaching building the site is wrong. I&#39;m going to work on optimization and refactoring possible later.</p>
+<p>This site is definitely an upgrade to my last couple sites where I used PHP as a backend for a lot of server-side scripts, and it was honestly, exhausting. Looking forward to developing this site over the summer.</p>
+<br/>
+
+<p><strong>ps[1]:</strong> if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a rate that <strong>should</strong> be pretty obvious).</p>
+<p><strong>ps[2]:</strong> a lot of the hyperlinks don&#39;t truly work <em><strong>yet</strong></em> (06-29-2022) as those subpages currently don&#39;t have any content (should be fixed within the next couple of days).</p>
+
     </main>
 </body>
 </html>

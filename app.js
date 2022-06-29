@@ -24,44 +24,41 @@ app.get("/", function(req, res) {
     res.render("index.html");
 })
 
-function read(_cb) {
-    var ll = [], dates = [], tmp=[];
-    fs.readdir(config.dev.blogdir, (err, files) => {
-        if (err) {
-            throw err;
-        }
-        else {
-            files.forEach(function(post) {
-                fs.readFile(config.dev.blogdir + post, "utf8", function(e, data) {
-                    if (e) {
-                        throw e;
-                    }
-                    else {
-                        var c = fm(data);
-                        c.attributes.link = "/blog/" + post.split(".md")[0];
-                        dates.push(c.attributes.date)
-                        ll.push(c);
-                    }
-                    if (ll.length == files.length) {
-                        dates.sort(function(a,b){return Date.parse(a) - Date.parse(b)});
-                        dates.reverse();
-                        dates.forEach(function(d) {
-                            ll.forEach(function(p) {
-                                if (p.attributes.date == d) {
-                                    if (tmp.indexOf(p) <= -1) {
-                                        tmp.push(p);
-                                        lists = tmp.slice();
-                                    }
-                                }
-                            })
-                        })
-                    }
-                    _cb();
-                })
-            })
-        }
-    })
-}
+var ll = [], dates = [], tmp=[];
+fs.readdir(config.dev.blogdir, (err, files) => {
+  if (err) {
+      throw err;
+  }
+  else {
+      files.forEach(function(post) {
+          fs.readFile(config.dev.blogdir + post, "utf8", function(e, data) {
+              if (e) {
+                  throw e;
+              }
+              else {
+                  var c = fm(data);
+                  c.attributes.link = "/blog/" + post.split(".md")[0];
+                  dates.push(c.attributes.date)
+                  ll.push(c);
+              }
+              if (ll.length == files.length) {
+                  dates.sort(function(a,b){return Date.parse(a) - Date.parse(b)});
+                  dates.reverse();
+                  dates.forEach(function(d) {
+                      ll.forEach(function(p) {
+                          if (p.attributes.date == d) {
+                              if (tmp.indexOf(p) <= -1) {
+                                  tmp.push(p);
+                                  lists = tmp.slice();
+                              }
+                          }
+                      })
+                  })
+              }
+          })
+      })
+  }
+})
 
 // posts
 app.use("/blog/*", (req,res) => {
@@ -95,9 +92,7 @@ app.use("*", (req, res) => {
         res.render("blog.html", {lists:lists, headers: headers});
     }
     else if (res.status(404)) {
-        let fdata = fs.readFileSync("./views/partials/404.html", "utf-8")
-        let error = ejs.render(fdata, {link: req.baseUrl});
-        res.render("partials/404.html", {link: req.baseUrl});
+        res.render("partials/404.html", {link: req.baseUrl, headers:headers});
     }
 })
 
@@ -195,30 +190,29 @@ function posts(_cb) {
 }
 
 async function build() {
-    read(function() {
-        moddir(function() {
-            console.log(`directory ${config.dev.builddir.split("./")[1]} - rebuilding`);
-            console.log(`creating directory ${config.dev.builddir.split("./")[1]}.`);
-            setTimeout(function() {
-                    subpages(function() {
-                    console.log(`subpages finished.`);
-                    posts(function() {
-                        console.log(`${lists.length} blog post(s) finished compiling.`)
-                    })
+    moddir(function() {
+        console.log(`directory ${config.dev.builddir.split("./")[1]} - rebuilding`);
+        console.log(`creating directory ${config.dev.builddir.split("./")[1]}.`);
+        setTimeout(function() {
+                subpages(function() {
+                console.log(`subpages finished.`);
+                posts(function() {
+                    console.log(`${lists.length} blog post(s) finished compiling.`)
                 })
-            }, 500);
-        })
+            })
+        }, 500);
     })
 }
 
 if (process.argv.length > 1) {
     if (process.argv[process.argv.length-1] == "build") {
         var bdir = __dirname + config.dev.builddir.split(".")[1];
-        build();
+        build(function() {
+          process.exit(1);
+        });
     }
     else {
-        read(function() {
-            app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})
-        })
-    }
+    app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})
+  }
 }
+
