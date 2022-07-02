@@ -1,17 +1,15 @@
 var express = require("express");
 var fs = require("fs");
+var fse = require("fs-extra");
 var fm = require("front-matter");
 var path = require("path");
 var { marked } = require("marked");
 var count = require("html-word-count");
 var ejs = require("ejs");
-var fse = require("fs-extra");
+
+const config = require("./config.js");
+
 var app = express();
-
-const config = require("./config");
-const { callbackify } = require("util");
-const { createBrotliCompress } = require("zlib");
-
 var headers = __dirname + "/views/partials/header.html"
 var hostname = "localhost", port=3000;
 var lists, bdir;
@@ -96,120 +94,9 @@ app.use("*", (req, res) => {
     }
 })
 
-
-function moddir(_cb) {
-    if (fs.existsSync(bdir)) {
-        fs.rm(bdir, {recursive: true}, (err) => {
-            if (err) {
-                throw err;
-            }
-        });
-    } 
-    setTimeout(function() {
-        fs.mkdir(bdir, (err) => {
-            if (err) {
-                throw err;
-            }
-        })
-    }, 300);
-    _cb();
-}
-
-function subpages(_cb) {
-    builds = config.build;
-    vals = Object.values(builds);
-    keys = Object.keys(builds);
-    for (var i=0; i<vals.length; ++i) {
-        var nn = vals[i][0], subpage=keys[i], vsend={}, bpath=`${bdir}/${subpage}`, rpath=`${__dirname}${nn}`;
-        if (subpage == "") {
-            subpage = "home";
-        }
-        if ((!!path.extname(rpath)) == true) {
-            if (!fs.existsSync(bpath)) {
-                fs.mkdir(bpath, {recursive: true}, err => {});
-            }
-            if (fs.existsSync(rpath)) {
-                console.log(`creating subpage: ${subpage}`);
-                if (vals[i].length > 1) {
-                    const loadvars = (vals[i][1]);
-                    for (var j=0; j<loadvars.length; ++j) {
-                        if (loadvars[j] == "lists") {
-                            vsend[loadvars[j]] = lists;
-                        }
-                        else {
-                            vsend[loadvars[j]] = `${eval(loadvars[j])}`;
-                        }
-                    }
-                }
-                var tdata = fs.readFileSync(rpath, "utf-8");
-                var contents = ejs.render(tdata, vsend);
-                fs.writeFile(`${bpath}/index.html`, contents, err => {
-                    if (err) {
-                        throw err;
-                    }
-                })
-            }
-        }
-        else {
-            if (nn.includes("/public/")) {
-                bpath = `${bdir}/${nn.split("/public/")[1]}`;
-            }
-            console.log(`copying src from public: ${nn}`);
-            fse.copySync(rpath, bpath, {overwrite: true, recursive: true}, (err) => {
-                if (err) {
-                    throw err;
-                }
-            })
-        }
-    }
-    _cb();
-}
-
-function posts(_cb) {
-    lists.forEach(function(post) {
-        const path = (`${bdir}${post.attributes.link}`);
-        if (!fs.existsSync(path)) {
-            fs.mkdir(path, {recursive: true}, err => {});
-        }
-
-        if (post.attributes.layout && (fs.existsSync(`./views/blog/${post.attributes.layout}.html`))) {
-            var tdata = fs.readFileSync(`./views/blog/${post.attributes.layout}.html`, "utf-8");
-        }
-        else {
-            var tdata = fs.readFileSync(`./views/blog/post.html`, "utf-8");
-        }
-	var contents = ejs.render(tdata, {post: post, body: marked.parse(post.body), count: count(post.body), headers: headers});
-        fs.writeFile(`${path}/index.html`, contents, err => {
-            if (err) {
-                throw err;
-            }
-            console.log(`creating blog file: ${post.attributes.title}`);
-        });
-    });
-    _cb();
-}
-
-async function build() {
-    moddir(function() {
-        console.log(`directory ${config.dev.builddir.split("./")[1]} - rebuilding`);
-        console.log(`creating directory ${config.dev.builddir.split("./")[1]}.`);
-        setTimeout(function() {
-                subpages(function() {
-                console.log(`subpages finished.`);
-                posts(function() {
-                    console.log(`${lists.length} blog post(s) finished compiling.`)
-                })
-            })
-        }, 500);
-    })
-}
-
 if (process.argv.length > 1) {
     if (process.argv[process.argv.length-1] == "build") {
-        var bdir = __dirname + config.dev.builddir.split(".")[1];
-        build(function() {
-          process.exit(1);
-        });
+		console.log("BUILD");
     }
     else {
     app.listen(port, () => { console.log(`Server running at http://${hostname}:${port}/`)})

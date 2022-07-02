@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 var fs = require("fs");
 var fse = require("fs-extra");
 var path = require("path");
@@ -8,7 +10,7 @@ var count = require("html-word-count");
 const config = require("./config.js");
 const { create } = require("domain");
 const headers = `${__dirname}/views/partials/header.html`;
-var ll;
+var ll, wait=200;
 
 function swap(arr, i, j) {
     tmp = arr[i];
@@ -33,7 +35,7 @@ function read() {
                     content.attributes.link = `/blog/${post.split(".md")[0]}`;
                     ll.push(content);
                     if (ll.length == files.length) {
-                        resolve();
+						setTimeout(resolve, wait);
                     }
                 });
             });
@@ -51,7 +53,8 @@ function bubblesort() {
                 }
             }
         }
-        resolve();
+		ll = ll.reverse();
+        setTimeout(resolve, wait);
     })
 }
 
@@ -65,7 +68,7 @@ function delBuild() {
                 console.log(`directory exists: ${config.dev.builddir}... removing.`);
             });
         }
-        setTimeout(resolve, 100);
+        setTimeout(resolve, wait);
     })
 }
 
@@ -91,7 +94,7 @@ function createSubs() {
 				fs.mkdir(buildpath, {recursive: true}, err => {});
 			}	
 		}
-		setTimeout(resolve, 100);
+		setTimeout(resolve, wait);
 	})	
 }
 
@@ -144,7 +147,7 @@ function subpages() {
 				})
             }
         }
-		setTimeout(resolve, 100);
+		setTimeout(resolve, wait);
     })
 }
 
@@ -157,7 +160,7 @@ function createBlogs() {
 				fs.mkdir(postpath, {recursive: true}, err => {});
 			}
 		})
-		setTimeout(resolve, 100);
+		setTimeout(resolve, wait);
 	})
 }
 
@@ -181,7 +184,7 @@ function writePosts() {
 			})
 			console.log(`creating blog file: ${post.attributes.title}`);
 		})
-		setTimeout(resolve, 100);
+		setTimeout(resolve, wait);
 	})
 }
 
