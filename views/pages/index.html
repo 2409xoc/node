@@ -17,10 +17,10 @@
         align-items: center;
         justify-content: center;
         height: 100%;
+		padding-left: 15%;
     }
     .grow {
         font-size: 36px;
-        left: 4em;
         top: 0.5em;
     }
     .hidden {
@@ -39,14 +39,46 @@
         
     }
     @media (max-width: 600px) {
-        html {
-            font-size: 55%;
-        }
+		.info {
+			position: relative;
+			right: 50vw;
+			top: 25vh;
+			float: none;
+			width: 100%;
+			padding-top: 10%;
+			max-width: 10em;
+		}
+		.info p {
+			position: relative;
+			right: 0.75em;
+		}
+		.info h2 {
+			width: 200%;
+			position: relative;
+			right: 2.5em;
+			top: 1.25em;
+		}
     }
     @media (max-width: 200px) {
-        html {
-            font-size: 45%;
-        }
+		.info {
+			position: relative;
+			right: 50vw;
+			top: 25vh;
+			float: none;
+			width: 100%;
+			padding-top: 10%;
+			max-width: 10em;
+		}
+		.info p {
+			position: relative;
+			right: 0.75em;
+		}
+		.info h2 {
+			width: 500%;
+			position: relative;
+			right: 2.5em;
+			top: 1.25em;
+		}
     }
 
 </style>
@@ -54,9 +86,9 @@
     <main>
         <div class="centered">
             <p class="int" id="hidden" style="padding-right: 0.5vw; opacity: 0">welcome to </p>
-                 <h1 class="grow" id="grow" style="opacity: 1">pseudohenry<sub class="hidden" id="sub" style="font-size: 15px; font-weight: normal">a haven of stupid.</sub></h1>
+                 <h1 class="grow" id="grow" style="opacity: 1">pseudohenry<sub class="hidden" id="sub" style="font-size: 12px; font-weight: normal"><br>my haven of stupid</sub></h1>
             <div>
-            <center id="info" style="opacity: 0">
+            <center id="info" class="info" style="opacity: 0">
                 <h2>MY STUFF</h2>
                 <p><a href="/blog/">blog:</a> collection of unstructured, stupid rants. </p>
                 <p><a href="/base2">base<sub>2</sub>:</a> possibly interesting long-term project. </p>

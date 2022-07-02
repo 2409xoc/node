@@ -46,7 +46,7 @@ header .sub {
     }
     header h3 {
         position: relative;
-        bottom: calc(3em - 1.5vh);
+        bottom: calc(3em - 4vh);
     }
     html {
         font-size: 1em;
