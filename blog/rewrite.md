@@ -36,5 +36,18 @@ This site is definitely an upgrade to my last couple sites where I used PHP as a
 
 **ps[2]:** a lot of the hyperlinks don't truly work ***yet*** (06-29-2022) as those subpages currently don't have any content (should be fixed within the next couple of days).
     
+## An Update (07-02):
+
+Today, I finished the first layer of refactoring on the main file. I don't truly know if it counts as (efficient) refactoring, but everything is a **bit** more organized now.
+
+### Changes Made:
+- split app.js into build.js and serve.js
+- instead of manual configuraton within serve.js for different subs, a config.js file was created
+- starting using await for more organized/structured function calls
+
+### To be improved:
+- I feel like I'm repeating the same functions just for different edge cases: have to find a way to solve that
+
+
 
 

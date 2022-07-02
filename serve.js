@@ -13,7 +13,7 @@ const config = require("./config.js");
 var headers = `${__dirname}/${config.dev.headers.split("./")[1]}`;
 var lists, wait=200;
 
-var app = express(), hostname="localhost", port=5000;
+var app = express(), hostname="localhost", port=3000;
 app.engine("html", require("ejs").renderFile);
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -97,25 +97,23 @@ app.use("*", (req, res) => {
 		url = req.baseUrl.split("/")[1];
 	}
 	var config_exist = config.build[url] !== undefined;
-	if (config_exist) {
-		if (fs.existsSync(`${__dirname}${config.build[url][0]}`)) {
-			if (config.build[url].length >= 2) {
-				args = config.build[url][1];
-				var i;
-				for (i=0; i<args.length; ++i) {
-					metadata_dict[args[i]] = eval(args[i]);
-				}
+	if (config_exist && (fs.existsSync(`${__dirname}${config.build[url][0]}`))) {
+		if (config.build[url].length >= 2) {
+			args = config.build[url][1];
+			var i;
+			for (i=0; i<args.length; ++i) {
+				metadata_dict[args[i]] = eval(args[i]);
 			}
-			else {
-				metadata_dict = {};
-			}
-			if (url == "") {
-				url = "index";
-			}
-			res.render(`pages/${url}.html`, metadata_dict);
 		}
+		else {
+			metadata_dict = {};
+		}
+		if (url == "") {
+			url = "index";
+		}
+		res.render(`pages/${url}.html`, metadata_dict);
 	}
-	else if (res.status(404)) {
+	else {
 		res.render("partials/404.html", {link: req.baseUrl, headers: headers});
 	}
 })

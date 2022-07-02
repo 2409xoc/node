@@ -1,32 +1,8 @@
-@font-face {
-	font-family: "cour";
-	src: url("fonts/cour.ttf");
-}
-
-@font-face {
-	font-family: "cour";
-	src: url("fonts/couri.ttf");
-	font-style: italic;
-}
-
-@font-face {
-	font-family: "cour";
-	src: url("fonts/courbd.ttf");
-	font-weight: bold;
-}
-
-@font-face {
-	font-family: "cour";
-	src: url("fonts/courbi.ttf");
-	font-weight: bold;
-	font-style: italic;
-}
-
 html, body {
     height: 100%;
     width: 100%;
     margin: auto;
-    font-family: cour;
+    font-family: Times;
 }
 
 body a {
@@ -42,7 +18,9 @@ body a:hover {
 main {
     margin: auto;
     max-width: 80%;
+	font-size: 90%;
 }
+
 header {
     margin: auto;
     max-width: 95%;
