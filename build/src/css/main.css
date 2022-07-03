@@ -1,54 +1,53 @@
-html, body {
-    height: 100%;
-    width: 100%;
+body {
+	margin: auto;
+	font-family: monospace;
     margin: auto;
-    font-family: Times;
+    max-width: 60%;
+	padding-top: 0.5em;	
 }
 
 body a {
-    font-weight: bolder;
-    text-decoration: none;
-    color: black;
+	color: red;
 }
 
 body a:hover {
-    text-decoration: underline;
+	font-weight: bold;
+	background: lightgray;
 }
 
-main {
-    margin: auto;
-    max-width: 80%;
-	font-size: 90%;
+body h2, h3 {
+	line-height: 0;
+	font-weight: bolder;
+}
+
+body li {
+	padding-left: 1em;
 }
 
 header {
     margin: auto;
-    max-width: 95%;
-    display: flex;
+}
+
+header a {
+	color: black;
+	text-decoration:  none;
+	font-size: 85%;
 }
 
 header h1,h2,h3 {
     display: inline-block;
     align-self: flex-end;
-    padding-right: 1em;
+    padding-right: 0.5em;
 }
 
 header .sub {
     position: relative;
     align-self: flex-end;
-    bottom: 0.25em;
+	line-height: 0;
 }
 
-@media (max-width: 600px) {
-    header .main {
-        float: none;
-        width: 100%;
-    }
-    header h3 {
-        position: relative;
-        bottom: calc(3em - 1.5vh);
-    }
-    html {
-        font-size: 1em;
-    }
+header hr {
+	position: relative;
+	bottom: 0.75em;
 }
+

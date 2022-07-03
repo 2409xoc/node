@@ -2,6 +2,13 @@
     display: inline-block;
 }
 
+.modded-br br {
+	display: block; 
+	content: ""; 
+	margin-top: 0; 
+}
+
+
 .desc {
     position: relative;
     bottom: 1em;
@@ -13,12 +20,12 @@
 }
 
 .date {
-    font-size: 78%;
+    font-size: 85%;
     line-height: 2;
 }
 
 .count {
-    font-size: 78%;
+    font-size: 85%;
     line-height: 2;
 }
 

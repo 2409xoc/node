@@ -7,115 +7,25 @@
     <title>pseudohenry</title>
 </head>
 <style>
-    body {
-        overflow: hidden;
-    }
-    .centered {
-        position: relative;
-        bottom: 0.75em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-    .grow {
-        font-size: 36px;
-        left: 4em;
-        top: 0.5em;
-    }
-    .hidden {
-        opacity: 0;
-    }
     ::selection {
         background: transparent;
     }
-    @media (max-width: 1200px) {
-        html {
-            font-size: 80%;
-        }
-        .grow {
-            font-size: 20px;
-        }
-        
-    }
-    @media (max-width: 600px) {
-        html {
-            font-size: 55%;
-        }
-    }
-    @media (max-width: 200px) {
-        html {
-            font-size: 45%;
-        }
-    }
-
 </style>
 <body>
-    <main>
-        <div class="centered">
-            <p class="int" id="hidden" style="padding-right: 0.5vw; opacity: 0">welcome to </p>
-                 <h1 class="grow" id="grow" style="opacity: 1">pseudohenry<sub class="hidden" id="sub" style="font-size: 15px; font-weight: normal">a haven of stupid.</sub></h1>
-            <div>
-            <center id="info" style="opacity: 0">
-                <h2>MY STUFF</h2>
-                <p><a href="/blog/">blog:</a> collection of unstructured, stupid rants. </p>
-                <p><a href="/base2">base<sub>2</sub>:</a> possibly interesting long-term project. </p>
-                <p><a href="/misc/">misc:</a> random miscellaneous projects.</p>
-                <p><a href="/about">about:</a> if, by any chance, you want to know more.</p>
-            </center>
-        </div>
-        </div>
-    </main>
-
-
-    <script>
-        function refill() {
-            var grow = document.getElementById("grow"), info = document.getElementById("info"), hidden = document.getElementById("hidden"), sub = document.getElementById("sub");
-            var opacity = 0, right = 0;
-            var opint=0.03125, rint=(0.75*opint);
-            var intv = setInterval(function() {
-                if (opacity < 1) {
-                    opacity += opint;
-                    right += rint;
-                    grow.style.paddingRight = `${right}em`;
-                    info.style.opacity = opacity;
-                    hidden.style.opacity = opacity;
-                    sub.style.opacity = opacity*2/3;
-                }
-                else {
-                    clearInterval(intv);
-                }
-            }, 10);
-        }
-        function Animate() {
-            var grow = document.getElementById("grow");
-            while (true) {
-                var add=3.5, itc=0, rtv=0, fsize=0;
-                var sstart=100, send=150
-                var mval = 60;
-                var fsize = (window.getComputedStyle(grow, null).getPropertyValue("font-size"));
-                var intv = setInterval(function() {
-                    fsize = String(parseInt(fsize) + add) + "px";
-                    grow.style.fontSize = fsize;
-                    if (itc >= send && parseInt(grow.style.fontSize) <= mval) {
-                        clearInterval(intv);
-                        setTimeout(refill, 50);
-                    }
-                    if (itc >= sstart && itc <= send) {
-                        add -= 0.135;
-                        grow.style.transform = `rotate(${rtv}deg)`;
-                        rtv += (360/Math.abs(send-sstart));
-                    }
-                    itc += 1;
-                }, 10);
-                break;
-            }
-        }
-
-        window.onload = (event) => {
-            setTimeout(Animate);
-            //document.getElementById("grow").style.fontSize = `${window.innerWidth/15}px`;
-        };
-    </script>
+	<header> <div class="sub"><h1 class="main"><a href="/">pseudohenry</a></h1></div><hr></header>
+	<p> Welcome to pseudohenry, I hope you enjoy your stay.</p>
+	<center>
+	<p><b>Warning:</b> not a professional site, in any shape or form. </p>
+	</center>
+	<h3>Interests:</h3>
+	<li>Applied Math</li>
+	<li>Computer Enginering</li>
+	<li>Anything that has interesting application</li>
+	<br>
+	<h3>Pages: </h3>
+	<li><a href="/blog">blog:</a> my (prime) collection of stupid rants. </li>
+	<li><a href="/base2">base<sub>2</sub>:</a> interesting idea, questionable execution. </li>
+	<li><a href="/misc">misc:</a> array of miscellaneous projects.</li>
+	<li><a href="/about">about:</a> more info?</li>
 </body>
 </html>

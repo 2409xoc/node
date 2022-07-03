@@ -10,8 +10,8 @@
 <body>
     <%- include(headers) %>
     <main>
-        <center>
-        <h1 style="line-height: 0;">Posts</h1>
+        <h2 style="line-height: 0;">Posts</h2>
+		<br>
     <% lists.forEach(function(post) { %> 
         <div class="display-post">
             <% if (post.attributes.date && post.attributes.title) { %>
@@ -21,9 +21,8 @@
                 <% } %>
             <% } %>
         </div>
-		<br/>
+		<div style="line-height: 10%"><br></div>
     <% }); %>
-        </center>
     </main>
 </body>
 </html>
