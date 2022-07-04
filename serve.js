@@ -63,6 +63,11 @@ function bubblesort() {
 	})
 }
 
+async function readl() {
+	await read();
+	await bubblesort();
+}
+
 app.use("/blog/*", (req, res) => {
 	if (req.baseUrl == "/blog") {
 		res.render("pages/blog.html", {lists:lists, headers: headers});
@@ -118,10 +123,8 @@ app.use("*", (req, res) => {
 	}
 })
 
-async function readl() {
-	await read();
-	await bubblesort();
-}
+setInterval(function() {
+	readl();
+}, 2000);
 
-readl();
 app.listen(port, () => { console.log(`Running: ${hostname}:${port}/`)});

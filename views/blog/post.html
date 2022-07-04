@@ -18,7 +18,7 @@
             <div class="a-info">
                 <p class="date">[<%= post.attributes.date %>]</p>
                 <% if ((count/200) < 1) { %>
-                    <p class="count">[<%= (count*60/200).toFixed(1) %> second read][<%= count%>]</p>
+                    <p class="count">[<%= (count*60/200).toFixed(1) %> second read][<%= count%> words]</p>
                 <%} else { %>
                     <p class="count">[<%= (count/200).toFixed(1) %> minute read][<%= count%> words]</p>
                 <% } %>
