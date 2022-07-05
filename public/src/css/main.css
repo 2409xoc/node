@@ -1,8 +1,14 @@
+@font-face {
+  font-family: "Crimson Text";
+  src: url("fonts/CrimsonText-Regular.ttf");
+}
+
+
 body {
 	margin: auto;
-	font-family: monospace;
-    margin: auto;
-    max-width: 60%;
+	font-family: "Crimson Text";
+  margin: auto;
+  max-width: 60%;
 	padding-top: 0.5em;	
 }
 
