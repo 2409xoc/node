@@ -1,6 +1,6 @@
 ---
-title: rewrite 
-description: rewriting my systems.
+title: Rewrite
+description: Rewriting and optimizing my site.
 date: 06-29-2022
 ---
 

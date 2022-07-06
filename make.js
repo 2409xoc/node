@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 var fs = require("fs");
 var fse = require("fs-extra");
 var path = require("path");

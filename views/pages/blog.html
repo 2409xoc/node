@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/blog.css">
-    <title>blog</title>
+    <title>Blog</title>
 </head>
 <body>
     <%- include(headers) %>
@@ -15,9 +15,9 @@
     <% lists.forEach(function(post) { %> 
         <div class="display-post">
             <% if (post.attributes.date && post.attributes.title) { %>
-                <p><%= post.attributes.date %> <a href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
+                <p><%= post.attributes.date %> <a style="position: relative; left: 0.5em" href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
                 <% if (post.attributes.description) { %> 
-                    <p class="desc">[<%= post.attributes.description %>]</p>
+                    <p class="desc"><%= post.attributes.description %></p>
                 <% } %>
             <% } %>
         </div>

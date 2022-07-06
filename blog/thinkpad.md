@@ -1,7 +1,7 @@
 ---
-title: thinkpad
+title: Thinkpad
 date: 07-03-2022
-description: my new thinkpad
+description: Getting a brand new (to me) Thinkpad.
 ---
 
 I got a Thinkpad, and it's been a pretty interesting addition towards my setup.

@@ -7,8 +7,8 @@
 body {
 	margin: auto;
 	font-family: "Crimson Text";
-  margin: auto;
-  max-width: 60%;
+	margin: auto;
+	max-width: 60%;
 	padding-top: 0.5em;	
 }
 
@@ -17,9 +17,9 @@ body a {
 }
 
 body a:hover {
-	font-weight: bold;
-	background: lightgray;
+	background-color:rgb(255, 0, 0, 0.1)
 }
+
 
 body h2, h3 {
 	line-height: 0;
@@ -31,7 +31,9 @@ body li {
 }
 
 header {
+    text-align: center;
     margin: auto;
+    font-size: 120%;
 }
 
 header a {

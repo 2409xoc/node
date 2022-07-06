@@ -1,4 +1,3 @@
-#!/usr/bin/node
 var express = require("express");
 var fs = require("fs");
 var fse = require("fs-extra");
@@ -63,9 +62,15 @@ function bubblesort() {
 	})
 }
 
+function addMarked() {
+	lists.forEach(function(post) {
+		post.htmlbody = marked.parse(post.body);
+	})	
+}
 async function readl() {
 	await read();
 	await bubblesort();
+	await addMarked();
 }
 
 app.use("/blog/*", (req, res) => {
@@ -123,8 +128,5 @@ app.use("*", (req, res) => {
 	}
 })
 
-setInterval(function() {
-	readl();
-}, 2000);
-
+readl();
 app.listen(port, () => { console.log(`Running: ${hostname}:${port}/`)});
