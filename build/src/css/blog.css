@@ -13,6 +13,7 @@
     position: relative;
     bottom: 1em;
     max-width: 50vw;
+    padding-left: 1.5em;
 }
 
 .display-post a:hover {
