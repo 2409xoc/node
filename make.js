@@ -8,7 +8,7 @@ var count = require("html-word-count");
 const config = require("./config.js");
 const { create } = require("domain");
 const headers = `${__dirname}/views/partials/header.html`;
-var ll, wait=300;
+var ll, wait=200;
 
 function swap(arr, i, j) {
     tmp = arr[i];
