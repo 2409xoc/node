@@ -17,7 +17,7 @@ Although it's an excellent productivity machine, it's larger and heavier than I'
 - weighs in at 2.4kg (~5.28lbs)
 - **super** thiccc
 
-But to be honest, the size isn't truly a problem, I was planning on working on building some muscle anyways and lugging this thing aroudn might just help me do so.
+But to be honest, the size isn't truly a problem, I was planning on working on building some muscle anyways and lugging this thing around might just help me do so.
 
 The one aspect that I **can** currently complain about is the battery life. It's, in a word, horrible. I've ordered a new 10.8V battery, but I think it's going to be a while before it arrives. Before the battery arrives, there's nothing I can really do other than, stay strapped to my desk (could be worse, though).
 

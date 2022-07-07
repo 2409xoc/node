@@ -17,9 +17,9 @@ Everything within the blog system of my Node app is pretty standard (if not slig
 
 Essentially, building the static site requires much of the same process (just with generated html). The steps required are (for a fresh build):
 1. create build directory (/build/)
-2. copy the /public/ folder to /build/ (containing srcs: css and assets)
-3. read a list of subpages, and build their directories within /build/ recursively
-4. read index page for each subpage (found in views) and generate html from its ejs template
+2. copy the /public/ folder to /build/ (containing src's: css and assets)
+3. read a list of sub-pages, and build their directories within /build/ recursively
+4. read index page for each sub-page (found in views) and generate html from its ejs template
 5. for blog posts:
     1. read each blog markdown file (found in /blog/)
     2. find ejs layout page (usually /views/blog.html)
@@ -34,7 +34,7 @@ This site is definitely an upgrade to my last couple sites where I used PHP as a
 
 **ps[1]:** if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a pretty simple rate)
 
-**ps[2]:** a lot of the hyperlinks don't truly work ***yet*** (06-29-2022) as those subpages currently don't have any content (should be fixed within the next couple of days).
+**ps[2]:** a lot of the hyperlinks don't truly work ***yet*** (06-29-2022) as those sub-pages currently don't have any content (should be fixed within the next couple of days).
     
 ## An Update (07-02):
 
@@ -42,7 +42,7 @@ Today, I finished the first layer of refactoring on the main file. I don't truly
 
 ### Changes Made:
 - split app.js into build.js and serve.js
-- instead of manual configuraton within serve.js for different subs, a config.js file was created
+- instead of manual configuration within serve.js for different subs, a config.js file was created
 - starting using await for more organized/structured function calls
 
 ### To be improved:
