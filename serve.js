@@ -12,7 +12,7 @@ const config = require("./config.js");
 var headers = `${__dirname}/${config.dev.headers.split("./")[1]}`;
 var lists, wait=200;
 
-var app = express(), hostname="localhost", port=3000;
+var app = express(), hostname="http://127.0.0.1", port=3000;
 app.engine("html", require("ejs").renderFile);
 app.use(express.static(path.join(__dirname, "public")));
 

@@ -43,6 +43,11 @@ body img {
 	width: 100%;
 }
 
+main p {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
 header {
     text-align: center;
     margin: auto;
