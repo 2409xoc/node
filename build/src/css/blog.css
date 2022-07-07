@@ -2,13 +2,6 @@
     display: inline-block;
 }
 
-.modded-br br {
-	display: block; 
-	content: ""; 
-	margin-top: 0; 
-}
-
-
 .desc {
     position: relative;
     bottom: 1em;

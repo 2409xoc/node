@@ -25,4 +25,6 @@ The one aspect that I **can** currently complain about is the battery life. It's
 
 I really enjoy being a possessor of this laptop, although it can be slow at times, I think I just have to orient my usage towards less resource intensive tasks.
 
+### Update (07-07)
 
+My battery came in today, and I'm going to perform some tests to see how long it lasts. It should last a solid 2-3 hours when I'm just writing. Looking forward to take this machine out of the house more often.
