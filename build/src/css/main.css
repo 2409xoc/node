@@ -3,7 +3,6 @@
   src: url("fonts/CrimsonText-Regular.ttf");
 }
 
-
 body {
 	margin: auto;
 	font-family: "Crimson Text";
@@ -13,7 +12,17 @@ body {
 }
 
 body a {
-	color: red;
+	color:crimson; 
+}
+
+ul {
+	margin: 0;
+}
+
+li {
+	list-style-type: square;
+	margin: 0;
+	padding: 0;
 }
 
 body a:hover {

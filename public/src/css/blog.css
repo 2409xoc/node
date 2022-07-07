@@ -1,16 +1,14 @@
-.display-post {
-    display: inline-block;
-}
-
 .desc {
+    margin: 0;
     position: relative;
     bottom: 1em;
     max-width: 50vw;
     padding-left: 1.5em;
 }
 
-.display-post a:hover {
-    text-decoration: underline;
+.post-listing {
+    margin: 0;
+    padding-bottom: 1.25em;
 }
 
 .date {
