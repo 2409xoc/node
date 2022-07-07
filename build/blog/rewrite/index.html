@@ -27,10 +27,11 @@
             <div class="a-info">
                 <p class="date">[06-29-2022]</p>
                 
-                    <p class="count">[2.5 minute read][498 words]</p>
+                    <p class="count">[2.5 minute read][502 words]</p>
                 
             </div>
         </div>
+    <main>
         <p>Welcome to the blog section of <strong>pseudohenry</strong>. Here, I write about whatever first comes to mind.</p>
 <p>To serve this site, I&#39;m using a node application that compiles to a static site and my VPS server pulls that static site from Github every <em>x</em> amount of minutes using a crontab command (currently, x=1 - allowing me to see changes faster).</p>
 <p>Everything within the blog system of my Node app is pretty standard (if not slightly inefficient):</p>
@@ -44,9 +45,9 @@
 <p>Essentially, building the static site requires much of the same process (just with generated html). The steps required are (for a fresh build):</p>
 <ol>
 <li>create build directory (/build/)</li>
-<li>copy the /public/ folder to /build/ (containing srcs: css and assets)</li>
-<li>read a list of subpages, and build their directories within /build/ recursively</li>
-<li>read index page for each subpage (found in views) and generate html from its ejs template</li>
+<li>copy the /public/ folder to /build/ (containing src&#39;s: css and assets)</li>
+<li>read a list of sub-pages, and build their directories within /build/ recursively</li>
+<li>read index page for each sub-page (found in views) and generate html from its ejs template</li>
 <li>for blog posts:<ol>
 <li>read each blog markdown file (found in /blog/)</li>
 <li>find ejs layout page (usually /views/blog.html)</li>
@@ -62,13 +63,13 @@
 <br/>
 
 <p><strong>ps[1]:</strong> if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a pretty simple rate)</p>
-<p><strong>ps[2]:</strong> a lot of the hyperlinks don&#39;t truly work <em><strong>yet</strong></em> (06-29-2022) as those subpages currently don&#39;t have any content (should be fixed within the next couple of days).</p>
+<p><strong>ps[2]:</strong> a lot of the hyperlinks don&#39;t truly work <em><strong>yet</strong></em> (06-29-2022) as those sub-pages currently don&#39;t have any content (should be fixed within the next couple of days).</p>
 <h2 id="an-update-07-02">An Update (07-02):</h2>
 <p>Today, I finished the first layer of refactoring on the main file. I don&#39;t truly know if it counts as (efficient) refactoring, but everything is a <strong>bit</strong> more organized now.</p>
 <h3 id="changes-made">Changes Made:</h3>
 <ul>
 <li>split app.js into build.js and serve.js</li>
-<li>instead of manual configuraton within serve.js for different subs, a config.js file was created</li>
+<li>instead of manual configuration within serve.js for different subs, a config.js file was created</li>
 <li>starting using await for more organized/structured function calls</li>
 </ul>
 <h3 id="to-be-improved">To be improved:</h3>
@@ -76,5 +77,6 @@
 <li>I feel like I&#39;m repeating the same functions just for different edge cases: have to find a way to solve that</li>
 </ul>
 
+    </main>
 </body>
 </html>

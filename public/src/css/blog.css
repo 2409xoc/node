@@ -1,3 +1,12 @@
+main p {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+big {
+    font-weight: bolder;
+}
+
 .desc {
     margin: 0;
     position: relative;
@@ -28,10 +37,6 @@
     display: flex;
 }
 
-main {
-	padding-bottom: 3em;
-}
-
 main h1, h2, h3, h4 {
 	line-height: 0;
 }
@@ -53,3 +58,4 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
