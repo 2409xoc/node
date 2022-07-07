@@ -40,12 +40,13 @@ body li {
 }
 
 header {
-    text-align: center;
     margin: auto;
 }
 
 header a {
 	color: black;
+	position: relative;
+	left: 0.5em;
 	text-decoration:  none;
 	font-size: 85%;
 }
@@ -53,7 +54,7 @@ header a {
 header h1,h2,h3 {
     display: inline-block;
     align-self: flex-end;
-    padding-right: 0.5em;
+    padding-right: 1em;
 }
 
 header .sub {
