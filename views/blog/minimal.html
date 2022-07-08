@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/blog.css">
     <title><%= post.attributes.title %></title>
+    <% if (post.attributes.tex == true) { %> 
+        <script type="text/x-mathjax-config">MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] }, svg: { fontCache: 'global', };</script>
+        <script type="text/javascript" src="/src/scripts/tex-svg.js"></script>
+    <% } %>
 </head>
 <body>
     <%- include(headers) %>

@@ -9,6 +9,10 @@
     <% if (post.attributes.description) { %>
     <meta description="<%= post.attributes.description %>">
     <% } %>
+    <% if (post.attributes.tex == true) { %> 
+    <script type="text/x-mathjax-config">MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] }, svg: { fontCache: 'global', };</script>
+    <script type="text/javascript" src="/src/scripts/tex-svg.js"></script>
+    <% } %>
 </head>
 <body>
 	<%- include(headers) %>

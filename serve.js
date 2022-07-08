@@ -129,4 +129,4 @@ app.use("*", (req, res) => {
 })
 
 readl();
-app.listen(port, () => { console.log(`Running: ${hostname}:${port}/`)});
+app.listen(port, () => { console.log(`Running: ${hostname}:${port}`)});

@@ -59,3 +59,8 @@ blockquote p {
   display: inline;
 }
 
+.MathJax {
+  font-size: 3.75em;
+  position: relative;
+  bottom: 1em;
+}
