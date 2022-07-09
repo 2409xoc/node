@@ -12,7 +12,7 @@
         <h1>Categories</h1>
         <p>Kind of a inefficient categorical sort, but: functionality, then efficiency. </p>
         <% Object.keys(tags).forEach(function(tag) { %> 
-            <div class="tag-sector" id=<%= tag %>> 
+            <div class="sector" id=<%= tag %>> 
             <h2 style="margin: auto"><%= tag %></h2>
             <% tags[tag].forEach(function(posts) { %> 
                 <p class="post-listing"><%= posts[2] %> <a style="position: relative; left: 0.5em" href=<%= posts[1] %>><%= posts[0] %></a></p>
@@ -26,7 +26,7 @@
         if (url.includes("#") && ((url.split("#")[1]).length >= 1)) {
             var i;
             args = url.split("#")[1];
-            tags = document.getElementsByClassName("tag-sector");
+            tags = document.getElementsByClassName("sector");
             for (i=0; i<tags.length; i++) {
                 if (tags[i].id == args) {
                     count += 1;

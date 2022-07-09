@@ -2,7 +2,7 @@
 title: Rewrite
 description: Rewriting and optimizing my site.
 date: 06-29-2022
-tags: test asdf hello
+tags: updates
 ---
 
 Welcome to the blog section of **pseudohenry**. Here, I write about whatever first comes to mind.
@@ -51,4 +51,17 @@ Today, I finished the first layer of refactoring on the main file. I don't truly
 
 I enjoy updating on existing posts, drastically reduces the need for newer posts and there's this whole sense of connection and progress. I've been working on a [categories](/category/) page and although it can be improved, I've got some basic sorting functionality up and running.
 
-I might think about rewriting the CSS file for more concise declarations because I feel like (once again) I'm just adding more lines for edge-cases that I know can be fixed using efficient syntax.
+I might think about rewriting the CSS file for more concise declarations because I feel like (once again) I'm just adding more lines for edge-cases that I know can be fixed using efficient syntax. I'm currently using 2 css files: *blog.css* and *main.css* which creates a lot of overlap if I don't pay enough attention.
+
+**Update** (Literally 30 minutes later): I've managed to compress my *main.css* and *blog.css* files into a singular css file, and I haven't seen any conflicts yet, although one is bound to arise. I'll fix that when it arises (not the best practice).
+
+I also enabled the usage of Latex rendering using MathTex through a flag in the front-matter content. If I pass: 
+```
+tex: true
+```
+at the front of the document (just so I don't have to call the rendering js file at the beginning of every post).
+
+Currently, the size of my build folder (the one presenting this site) is 280KB, although the src folder takes up 244KB (124KB for fonts, and 112KB for images).
+
+A feature I'd like to add is the Code Chunks as found in R Markdown, where code is written and the output is embedded in the document automatically. Could be an interesting idea (I just really like pretty charts, but who doesn't).
+

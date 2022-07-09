@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/main.css">
-    <link rel="stylesheet" href="/src/css/blog.css">
     <title>Rewrite</title>
     
     <meta description="Rewriting and optimizing my site.">
@@ -25,10 +24,10 @@
 
         <div class="data">
             <h1 style="line-height: 0">Rewrite</h1>
-            <div class="a-info">
-                <p class="date">[06-29-2022]</p>
+            <div class="metadata">
+                <p id="date" class="metadata">[06-29-2022]</p>
                 
-                    <p class="count">[3.0 minute read][590 words]</p>
+                    <p id="count" class="metadata">[3.9 minute read][781 words]</p>
                 
             </div>
         </div>
@@ -77,7 +76,14 @@
 </ul>
 <h2 id="another-update-07-08">Another Update (07-08)</h2>
 <p>I enjoy updating on existing posts, drastically reduces the need for newer posts and there&#39;s this whole sense of connection and progress. I&#39;ve been working on a <a href="/category/">categories</a> page and although it can be improved, I&#39;ve got some basic sorting functionality up and running.</p>
-<p>I might think about rewriting the CSS file for more concise declarations because I feel like (once again) I&#39;m just adding more lines for edge-cases that I know can be fixed using efficient syntax.</p>
+<p>I might think about rewriting the CSS file for more concise declarations because I feel like (once again) I&#39;m just adding more lines for edge-cases that I know can be fixed using efficient syntax. I&#39;m currently using 2 css files: <em>blog.css</em> and <em>main.css</em> which creates a lot of overlap if I don&#39;t pay enough attention.</p>
+<p><strong>Update</strong> (Literally 30 minutes later): I&#39;ve managed to compress my <em>main.css</em> and <em>blog.css</em> files into a singular css file, and I haven&#39;t seen any conflicts yet, although one is bound to arise. I&#39;ll fix that when it arises (not the best practice).</p>
+<p>I also enabled the usage of Latex rendering using MathTex through a flag in the front-matter content. If I pass: </p>
+<pre><code>tex: true
+</code></pre>
+<p>at the front of the document (just so I don&#39;t have to call the rendering js file at the beginning of every post).</p>
+<p>Currently, the size of my build folder (the one presenting this site) is 280KB, although the src folder takes up 244KB (124KB for fonts, and 112KB for images).</p>
+<p>A feature I&#39;d like to add is the Code Chunks as found in R Markdown, where code is written and the output is embedded in the document automatically. Could be an interesting idea (I just really like pretty charts, but who doesn&#39;t).</p>
 
     </main>
 </body>

@@ -4,21 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/main.css">
-    <link rel="stylesheet" href="/src/css/blog.css">
     <title>Blog</title>
 </head>
 <body>
     <%- include(headers) %>
     <main>
-    <h2 class="tags">Categories: </h2>
+    <h2 style="padding-bottom: 1em" class="tags">Categories: </h2>
     <div class="tags">
         <p>
+        <p class="tags"><a href="/category">all</a></p>
         <% Object.keys(tags).forEach(function(tag) { %> 
             <p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
         <% }); %>
         </p>
     </div>
-    <br>
     <hr>
     <h2>Posts</h2>
     <% lists.forEach(function(post) { %> 
