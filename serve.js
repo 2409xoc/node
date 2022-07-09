@@ -11,7 +11,7 @@ var fmatter = require("front-matter");
 const config = require("./config.js");
 const { getStatusMapping } = require("cucumber/lib/status.js");
 var headers = `${__dirname}/${config.dev.headers.split("./")[1]}`;
-var lists, tags, wait=200;
+var all, dirlist, blog, sci, tags, wait=200;
 
 var app = express(), hostname="http://127.0.0.1", port=3000;
 app.engine("html", require("ejs").renderFile);
@@ -19,26 +19,30 @@ app.use(express.static(path.join(__dirname, "public")));
 
 function read() {
 	return new Promise((resolve, reject) => {
-		lists = [];
-		fs.readdir(config.dev.blogdir, (err, files) => {
-			if (err) {
-				throw err;
-			}
-			files.forEach(function(post) {
-				fs.readFile(`${config.dev.blogdir}${post}`, "utf8", function(err, data) {
-					if (err) {
-						throw err;
-					}
-					var content = fmatter(data);
-					content.attributes.link = `/blog/${post.split(".md")[0]}`;
-					lists.push(content);
-					if (lists.length == files.length) {
-						setTimeout(resolve, wait);
-					}
+		all = [];
+		dirlist = Object.values(config.readdirs);
+		dirlist.forEach(function(dir) {
+			fs.readdir(dir, (err, files) => {
+				if (err) {
+					throw err;
+				}
+				files.forEach(function(post) {
+					fs.readFile(`${dir}${post}`, "utf8", function(err, data) {
+						if (err) {
+							throw err;
+						}
+						var content = fmatter(data);
+						content.attributes.link = `${dir.slice(0, 0) + dir.slice(1)}${post.split(".md")[0]}`;
+						content.type = `${(dir.slice(0, 0) + dir.slice(2)).split("/")[0]}`;
+						all.push(content);
+						if (all.length == files.length) {
+							setTimeout(resolve, wait);
+						}
+					});
 				});
-			});
+			});	
 		});	
-	});	
+	})
 }
 
 function swap(arr,i,j) {
@@ -50,22 +54,22 @@ function swap(arr,i,j) {
 
 function bubblesort() {
 	return new Promise((resolve, reject) => {
-		var i,j, n=lists.length;
+		var i,j, n=all.length;
 		for (i=0; i<n-1; i++) {
 			for (j=0; j<n-i-1; j++) {
-				if (Date.parse(lists[j].attributes.date) > Date.parse(lists[j+1].attributes.date)) {
-					lists = swap(lists, j, j+1);
+				if (Date.parse(all[j].attributes.date) > Date.parse(all[j+1].attributes.date)) {
+					all = swap(all, j, j+1);
 				}
 			}
 		}
-		lists = lists.reverse();
+		all = all.reverse();
 		setTimeout(resolve, wait);
 	})
 }
 
 function addMarked() {
 	return new Promise((resolve, reject) => {
-		lists.forEach(function(post) {
+		all.forEach(function(post) {
 			post.htmlbody = marked.parse(post.body);
 		})	
 		setTimeout(resolve, wait);
@@ -75,7 +79,7 @@ function addMarked() {
 function getTags() {
 	return new Promise((resolve, reject) => {
 		tags = {};
-		lists.forEach(function(post) {
+		all.forEach(function(post) {
 			var existing;
 			if (post.attributes.tags) {
 				post.attributes.tags.split(" ").forEach(function(tag) {
@@ -94,16 +98,33 @@ function getTags() {
 		setTimeout(resolve, wait);
 	})
 }
+
+function split() {
+	return new Promise((resolve, reject) => {
+		blog = [], sci = [];
+		all.forEach(function(post) {
+			if (post.type == "blog") {
+				blog.push(post);
+			}
+			else if (post.type == "sci") {
+				sci.push(post);
+			}
+		})
+		setTimeout(resolve, wait);
+	})
+}
+
 async function getinfo() {
 	await read();
 	await bubblesort();
 	await addMarked();
 	await getTags();
+	await split();
 }
 
 app.use("/blog/*", (req, res) => {
 	if (req.baseUrl == "/blog") {
-		res.render("pages/blog.html", {lists:lists, headers: headers, tags: tags});
+		res.render("pages/blog.html", {blog:blog, headers: headers, tags: tags});
 	}
 	else {
 		var template;
@@ -122,6 +143,29 @@ app.use("/blog/*", (req, res) => {
 					template = `blog/post.html`;
 				}
 				res.render(template, {post: content, body: body, count: count(body), headers:headers, tags: tags});
+			})
+		}
+		else {
+			res.render("partials/404.html", {link: req.baseUrl, headers:headers});
+		}
+	}
+})
+
+app.use("/sci/*", (req, res) => {
+	if (req.baseUrl == "/sci") {
+		res.render("pages/sci.html", {sci: sci, headers:headers})
+	}
+	else {
+		var template;
+		var relative = `.${req.baseUrl}.md`;
+		if (fs.existsSync(relative)) {
+			fs.readFile(relative, "utf8", function(err, data) {
+				if (err) {
+					throw err;
+				}
+				var content = fmatter(data);
+				var body = marked.parse(content.body);
+				res.render("blog/sci.html", {post: content, body: body, headers:headers});
 			})
 		}
 		else {

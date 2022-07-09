@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (post.attributes.description) { %>
+	    <meta description="<%= post.attributes.description %>">
+    <% } %>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <title><%= post.attributes.title %></title>
+    <% if (post.attributes.tex == true) { %> 
+        <script type="text/x-mathjax-config">MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] }, svg: { fontCache: 'global', };</script>
+        <script type="text/javascript" src="/src/scripts/tex-svg.js"></script>
+    <% } %>
+</head>
+<body>
+    <%- include(headers) %>
+        <center>
+        <h2 style="line-height: 0;"><%= post.attributes.title %></h2>
+        </center>
+    <main>
+        <%- body %>
+    </main>
+</div>
+</body>
+</html>
