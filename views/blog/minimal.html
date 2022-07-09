@@ -21,5 +21,24 @@
     <main>
         <%- body %>
     </main>
+    <hr>
+    <div class="tags">
+        <p>
+            <h3 style="padding-bottom: 1em" class="tags">Tags: </h3>
+            <% (post.attributes.tags.split(" ")).forEach(function(tag) { %> 
+                <p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
+            <% }); %>
+        </p>
+    </div>
+    <div class="tags">
+    <p>
+        <h3 style="padding-bottom: 1em" class="tags">All Tags: </h3>
+    <p class="tags"><a href="/category">all</a></p>
+    <% Object.keys(tags).forEach(function(tag) { %> 
+        <p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
+    <% }); %>
+    </p>
+</div>
+</div>
 </body>
 </html>

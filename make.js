@@ -201,7 +201,7 @@ function writePosts() {
 			}
 			
 			ejs_template = fs.readFileSync(template_path, "utf-8");
-			rendering = ejs.render(ejs_template, {post: post, body: marked.parse(post.body), count: count(post.body), headers:headers});
+			rendering = ejs.render(ejs_template, {post: post, body: marked.parse(post.body), count: count(post.body), tags: tags, headers:headers});
 			fs.writeFile(`${config.dev.builddir}${post.attributes.link}/index.html`, rendering, err => {
 				if (err) {
 					throw err;

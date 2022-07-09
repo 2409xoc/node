@@ -121,7 +121,7 @@ app.use("/blog/*", (req, res) => {
 				else {
 					template = `blog/post.html`;
 				}
-				res.render(template, {post: content, body: body, count: count(body), headers:headers});
+				res.render(template, {post: content, body: body, count: count(body), headers:headers, tags: tags});
 			})
 		}
 		else {

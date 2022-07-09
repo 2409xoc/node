@@ -63,12 +63,12 @@ blockquote p {
 	display: inline;
 }
 
-main p {
+p {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
 
-main code {
+code {
 	padding-left: 1em;
 	padding-right: 1em;
 }
@@ -80,7 +80,7 @@ main code {
 }
 
 .desc {
-    max-width: 50vw;
+    max-width: 55vw;
 	padding-bottom: 1em;
 }
 
@@ -92,7 +92,7 @@ main code {
 .metadata p {
     font-size: 85%;
     line-height: 2;
-	
+	padding: 0;	
 }
 
 .MathJax {
