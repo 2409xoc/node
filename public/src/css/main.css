@@ -79,7 +79,7 @@ code {
     margin: auto;
 }
 
-.desc {
+.post-listing desc {
     max-width: 55vw;
 	padding-bottom: 1em;
 }
@@ -99,6 +99,22 @@ code {
 	font-size: 3.75em;
 	position: relative;
 	bottom: 1em;
+}
+
+/* sci */
+.sci-listing {
+	font-size: 125%;
+	margin: 0;
+}
+
+.sci-listing a {
+	text-decoration: none;
+	font-size: 112.5%;
+}
+
+.sci-post .desc {
+	margin: auto;
+	max-width: 90%;
 }
 
 /* tags */
@@ -123,6 +139,7 @@ code {
 .tags a:hover {
     background-color: rgb(135, 206, 235, 0.2)
 }
+
 
 /* header */
 header {
