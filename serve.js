@@ -9,8 +9,9 @@ var count = require("html-word-count");
 var fmatter = require("front-matter");
 
 const config = require("./config.js");
+const { getStatusMapping } = require("cucumber/lib/status.js");
 var headers = `${__dirname}/${config.dev.headers.split("./")[1]}`;
-var lists, wait=200;
+var lists, tags, wait=200;
 
 var app = express(), hostname="http://127.0.0.1", port=3000;
 app.engine("html", require("ejs").renderFile);
@@ -63,40 +64,71 @@ function bubblesort() {
 }
 
 function addMarked() {
-	lists.forEach(function(post) {
-		post.htmlbody = marked.parse(post.body);
-	})	
+	return new Promise((resolve, reject) => {
+		lists.forEach(function(post) {
+			post.htmlbody = marked.parse(post.body);
+		})	
+		setTimeout(resolve, wait);
+	})
 }
-async function readl() {
+
+function getTags() {
+	return new Promise((resolve, reject) => {
+		tags = {};
+		lists.forEach(function(post) {
+			var existing;
+			if (post.attributes.tags) {
+				post.attributes.tags.split(" ").forEach(function(tag) {
+					tag = String(tag);
+					if (tags[tag]) {
+						existing = tags[tag];
+					}
+					else {
+						existing = [];
+					}
+					existing.push([post.attributes.title, post.attributes.link, post.attributes.date])
+					tags[tag] = existing;
+				})
+			}
+		})
+		setTimeout(resolve, wait);
+	})
+}
+async function getinfo() {
 	await read();
 	await bubblesort();
 	await addMarked();
+	await getTags();
 }
 
 app.use("/blog/*", (req, res) => {
 	if (req.baseUrl == "/blog") {
-		res.render("pages/blog.html", {lists:lists, headers: headers});
+		res.render("pages/blog.html", {lists:lists, headers: headers, tags: tags});
 	}
 	else {
 		var template;
 		var relative = `.${req.baseUrl}.md`;
-		fs.readFile(relative, "utf8", function(err, data) {
-			if (err) {
-				throw err;
-			}
-			var content = fmatter(data);
-			var body = marked.parse(content.body);
-			if (content.attributes.layout && (fs.existsSync(`views/blog/${content.attributes.layout}.html`))) {
-				template = `blog/${content.attributes.layout}.html`;
-			}
-			else {
-				template = `blog/post.html`;
-			}
-			res.render(template, {post: content, body: body, count: count(body), headers:headers});
-		})
+		if (fs.existsSync(relative)) {
+			fs.readFile(relative, "utf8", function(err, data) {
+				if (err) {
+					throw err;
+				}
+				var content = fmatter(data);
+				var body = marked.parse(content.body);
+				if (content.attributes.layout && (fs.existsSync(`views/blog/${content.attributes.layout}.html`))) {
+					template = `blog/${content.attributes.layout}.html`;
+				}
+				else {
+					template = `blog/post.html`;
+				}
+				res.render(template, {post: content, body: body, count: count(body), headers:headers});
+			})
+		}
+		else {
+			res.render("partials/404.html", {link: req.baseUrl, headers:headers});
+		}
 	}
 })
-
 
 app.use("*", (req, res) => {
 	var url, metadata_dict={}, args;
@@ -128,5 +160,5 @@ app.use("*", (req, res) => {
 	}
 })
 
-readl();
+getinfo();
 app.listen(port, () => { console.log(`Running: ${hostname}:${port}`)});

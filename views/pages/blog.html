@@ -10,8 +10,17 @@
 <body>
     <%- include(headers) %>
     <main>
-        <h2 style="line-height: 0;">Posts</h2>
-		<br>
+    <h2 class="tags">Categories: </h2>
+    <div class="tags">
+        <p>
+        <% Object.keys(tags).forEach(function(tag) { %> 
+            <p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
+        <% }); %>
+        </p>
+    </div>
+    <br>
+    <hr>
+    <h2>Posts</h2>
     <% lists.forEach(function(post) { %> 
         <div class="display-post">
             <% if (post.attributes.date && post.attributes.title) { %>

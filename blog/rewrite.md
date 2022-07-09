@@ -2,6 +2,7 @@
 title: Rewrite
 description: Rewriting and optimizing my site.
 date: 06-29-2022
+tags: test asdf hello
 ---
 
 Welcome to the blog section of **pseudohenry**. Here, I write about whatever first comes to mind.
@@ -30,8 +31,6 @@ Pretty simple stuff, although, I'm pretty positive the way I'm approaching build
 
 This site is definitely an upgrade to my last couple sites where I used PHP as a backend for a lot of server-side scripts, and it was honestly, exhausting. Looking forward to developing this site over the summer.
 
-<br/>
-
 **ps[1]:** if your curious about the correlation between the reading time + number of words, I just set it as an approximation of 200 words read/min (a pretty simple rate)
 
 **ps[2]:** a lot of the hyperlinks don't truly work ***yet*** (06-29-2022) as those sub-pages currently don't have any content (should be fixed within the next couple of days).
@@ -48,6 +47,8 @@ Today, I finished the first layer of refactoring on the main file. I don't truly
 ### To be improved:
 - I feel like I'm repeating the same functions just for different edge cases: have to find a way to solve that
 
+## Another Update (07-08)
 
+I enjoy updating on existing posts, drastically reduces the need for newer posts and there's this whole sense of connection and progress. I've been working on a [categories](/category/) page and although it can be improved, I've got some basic sorting functionality up and running.
 
-
+I might think about rewriting the CSS file for more concise declarations because I feel like (once again) I'm just adding more lines for edge-cases that I know can be fixed using efficient syntax.

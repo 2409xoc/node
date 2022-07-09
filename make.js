@@ -7,8 +7,9 @@ var marked = require("marked");
 var count = require("html-word-count");
 const config = require("./config.js");
 const { create } = require("domain");
+const { getStatusMapping } = require("cucumber/lib/status.js");
 const headers = `${__dirname}/views/partials/header.html`;
-var ll, wait=200;
+var ll, tags, wait=300;
 
 function swap(arr, i, j) {
     tmp = arr[i];
@@ -54,6 +55,29 @@ function bubblesort() {
 		ll = ll.reverse();
         setTimeout(resolve, wait);
     })
+}
+
+function getTags() {
+	return new Promise((resolve, reject) => {
+		tags = {};
+		ll.forEach(function(post) {
+			var existing;
+			if (post.attributes.tags) {
+				post.attributes.tags.split(" ").forEach(function(tag) {
+					tag = String(tag);
+					if (tags[tag]) {
+						existing = tags[tag];
+					}
+					else {
+						existing = [];
+					}
+					existing.push([post.attributes.title, post.attributes.link, post.attributes.date])
+					tags[tag] = existing;
+				})
+			}
+		})
+		setTimeout(resolve, wait);
+	})
 }
 
 function delBuild() {
@@ -115,6 +139,9 @@ function subpages() {
 						for (j=0; j<loadvars.length; ++j) {
 							if (loadvars[j] == "lists") {
 								metadata_dict[loadvars[j]] = ll;
+							}
+							else if (loadvars[j] == "tags") {
+								metadata_dict[loadvars[j]] = tags;
 							}
 							else {
 								metadata_dict[loadvars[j]] = `${eval(loadvars[j])}`;
@@ -189,6 +216,7 @@ function writePosts() {
 async function print() {
     await read();
     await bubblesort();
+	await getTags();
     await delBuild();
     await createBuild();
 	await createSubs();

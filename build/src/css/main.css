@@ -31,7 +31,7 @@ body li {
 	padding-left: 1em;
 }
 
-body h2, h3 {
+body h1, h2, h3 {
 	line-height: 0;
 	font-weight: bolder;
 }

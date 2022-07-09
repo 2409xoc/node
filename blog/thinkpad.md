@@ -1,7 +1,8 @@
 ---
-title: Thinkpad
+title: Thinkpad [SL410]
 date: 07-03-2022
 description: Getting a brand new (to me) Thinkpad.
+tags: hello test asdf
 ---
 
 I got a Thinkpad, and it's been a pretty interesting addition towards my setup.

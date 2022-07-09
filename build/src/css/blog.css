@@ -64,3 +64,21 @@ blockquote p {
   position: relative;
   bottom: 1em;
 }
+
+.tags {
+    display: flex;
+    margin: 0;
+}
+
+.tags a {
+    position: relative;
+    top: 1em;
+    font-weight: bold;
+    color: rgb(135, 206, 225);
+    font-size: 112.5%;
+    text-decoration: none;
+}
+
+.tags a:hover {
+    background-color: rgb(135, 206, 235, 0.2)
+}
