@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Crimson Text";
-  src: url("fonts/CrimsonText-Regular.ttf");
+  font-family: "Inconsolata";
+  src: url(fonts/Inconsolata.ttf);
 }
 
 body {
 	margin: auto;
-	font-family: "Crimson Text";
+	font-family: "Inconsolata";
 	max-width: 60%;
 	padding-top: 0.5em;	
 	padding-bottom: 4em;
@@ -79,7 +79,7 @@ code {
     margin: auto;
 }
 
-.post-listing desc {
+.display-post .desc {
     max-width: 55vw;
 	padding-bottom: 1em;
 }
@@ -122,6 +122,7 @@ code {
 .tags {
 	display: flex;
 	margin: 0;
+	align-self: flex-end;
 }
 
 .sector h2 {
