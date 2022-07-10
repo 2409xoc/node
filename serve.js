@@ -120,6 +120,7 @@ async function getinfo() {
 	await addMarked();
 	await getTags();
 	await split();
+	app.listen(port, () => { console.log(`Running: ${hostname}:${port}`)});
 }
 
 app.use("/blog/*", (req, res) => {
@@ -205,4 +206,3 @@ app.use("*", (req, res) => {
 })
 
 getinfo();
-app.listen(port, () => { console.log(`Running: ${hostname}:${port}`)});

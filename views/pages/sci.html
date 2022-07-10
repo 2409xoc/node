@@ -13,7 +13,7 @@
     <p>My blog is a place for random and unfiltered thoughts and ideas, I thought I'd create a sub-site for more purposeful, and factual topics.</p>
     <% sci.forEach(function(post) { %> 
         <div class="sci-post">
-            <% if (post.attributes.date && post.attributes.title) { %>
+            <% if (post.attributes.title) { %>
                 <p class="sci-listing"><a href=<%= post.attributes.link %>><%= post.attributes.title %></a></p>
                 <% if (post.attributes.description) { %> 
                     <p class="desc"><%= post.attributes.description %></p>
