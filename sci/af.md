@@ -1,6 +1,7 @@
 ---
 title: Advanced Functions
 description: Notes for my G12 Advanced Functions course, taken during the summer of 10th grade. They're here just in case I need to review.
+date: 07-09-2022
 tex: true
 --- 
 

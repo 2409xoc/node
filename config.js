@@ -12,6 +12,7 @@ const config = {
 		'about': [['/views/pages/about.html'], ["headers"]],
 		'css': ['/public/src/css'], 
 		'assets': ['/public/src/assets'], 
+		'scripts': ['/public/src/scripts'], 
 	},
 	readdirs: {
 		blog: './blog/', 
