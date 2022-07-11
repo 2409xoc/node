@@ -1,0 +1,13 @@
+---
+title: "Sample Document"
+output: 
+  html_document:
+    toc: true
+---
+
+
+```{r cars-plot, dev='png', fig.show='show'}
+plot(cars)
+```
+
+

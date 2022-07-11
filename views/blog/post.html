@@ -11,12 +11,16 @@
 			<title><%= post.attributes.title %></title>
 		<% } %>
 		<% if (post.attributes.tex == true) { %> 
+			<script src="/src/scripts/polyfill.min.js?features=es6"></script>
 			<script type="text/x-mathjax-config">MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] }, svg: { fontCache: 'global', };</script>
 			<script type="text/javascript" src="/src/scripts/tex-svg.js"></script>
 		<% } %>
+    <% if (post.attributes.graph == true ) { %> 
+			<script src="/src/scripts/chart.min.js"></script>
+    <% } %>
 		<% if (post.attributes.chart == true) { %> 
 			<script src="/src/scripts/mermaid.min.js"></script>
-			<script>
+      <script>
 				mermaid.initialize({ startOnLoad: true });
 			</script>
 		<% } %>
