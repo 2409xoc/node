@@ -63,6 +63,11 @@ blockquote p {
 	display: inline;
 }
 
+table th, table td {
+	padding: 6px 13px;
+	border: 1px solid #30363d;
+}
+
 p {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
@@ -95,11 +100,6 @@ code {
 	padding: 0;	
 }
 
-.MathJax {
-	font-size: 3.75em;
-	position: relative;
-	bottom: 1em;
-}
 
 /* sci */
 .sci-listing {
@@ -115,6 +115,18 @@ code {
 .sci-post .desc {
 	margin: auto;
 	max-width: 90%;
+}
+
+.chart-js {
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+	max-width: 25%;
+}
+
+.mermaid {
+	text-align: center;
 }
 
 /* tags */
