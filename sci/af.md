@@ -1,6 +1,6 @@
 ---
 title: Advanced Functions
-description: Notes for my G12 Advanced Functions course, taken during the summer of 10th grade. They're here just in case I need to review.
+description: Notes for Advanced Functions, with some prerequisite notes for review. They may be incoherent, but they're here just in case.
 date: 07-09-2022
 tex: true
 chart: true
@@ -65,7 +65,7 @@ An interval is a set of real numbers containing all real numbers between the 2 e
 **Set Notation:** Set notation is the algebraic way of describing a set. 
 
 <center>
-{ x | x < 8, x ∈ R }
+ { $x | x < 8, x \in R $} 
 
 Through this notation, we understand that the set ***X*** is a set containing all real numbers less than 8.
 </center>
@@ -78,7 +78,7 @@ We can display the interval on a number line visually.
 **Interval Notation:**
 We can also use a special notation called interval notation:
 <center>
-{ x ∈ (-∞, 8), x ∈ R}
+{$ x \in (-\infty, 8), x \in R $}
 
 Once again, through this notation, we understand that the set ***X*** is a set containing all real numbers less than 8.
 
@@ -113,13 +113,13 @@ A local minimum is a point where the y-value is less than or equal to all other 
 If there's more than one local minimum/maximum, they're referred to as minima/maxima.
 
 ### End Behavior of Functions
-The end behavior of functions refers to what happens to the y-values as x approaches -∞ and ∞ (really small and large values). 
+The end behavior of functions refers to what happens to the y-values as x approaches $-\infty and \infty $ (really small and large values). 
 
-"As x->∞" and "As x->-∞".
+"$x \to \infty$ and $x \to -\infty$
 
 For example: in the function: y = f(x) = x<sup>2</sup>. 
 
-As x->∞, y->∞ and as x->-∞, y->∞.
+As $x \to \infty; y \to \infty $ and $x \to -\infty; y \to \infty$
 
 ## Composite Functions
 Composite functions are the results of combining two or more functions. An input goes through an initial function f(x), and then the output of that function becomes the input for another function, and so on.
@@ -323,12 +323,12 @@ function genData(exp, l1, l2, step, desc) {
 }
 
 
-[qx, qy, qe] = genData("x**2", -10, 10, 0.5, "x^2");
-[sx, sy, se] = genData("x**0.5", -10, 10, 0.5, "√x");
-[cx, cy, ce] = genData("x**3", -10, 10, 0.5, "x^3");
-[rx, ry, re] = genData("1/x", -10, 10, 0.5, "1/x");
-[ex, ey, ee] = genData("2**x", -10, 10, 0.5, "2^x");
-[ax, ay, ae] = genData("Math.abs(x)", -10, 10, 0.5, "|x|");
+[qx, qy, qe] = genData("x**2", -4, 4, 0.25, "x^2");
+[sx, sy, se] = genData("x**0.5", -4, 4, 0.25, "√x");
+[cx, cy, ce] = genData("x**3", -4, 4, 0.25, "x^3");
+[rx, ry, re] = genData("1/x", -4, 4, 0.25, "1/x");
+[ex, ey, ee] = genData("2**x", -4, 4, 0.25, "2^x");
+[ax, ay, ae] = genData("Math.abs(x)", -4, 4, 0.25, "|x|");
 
 l.forEach(function(char) {
     new Chart(char, {
@@ -360,20 +360,20 @@ l.forEach(function(char) {
 <script>
 // translations
 
-[qxvp, qyvp, qevp] = genData("x**2+10", -10, 10, 0.5, "x^2+10");
-[qxvn, qyvn, qevn] = genData("x**2-10", -10, 10, 0.5, "x^2-10");
+[qxvp, qyvp, qevp] = genData("x**2+10", -4, 4, 0.25, "x^2+10");
+[qxvn, qyvn, qevn] = genData("x**2-10", -4, 4, 0.25, "x^2-10");
 
-[qxh, qyh, qeh] = genData("x**2", -20, 20, 0.5, "x^2");
-[qxhp, qyhp, qehp] = genData("(x+5)**2", -20, 20, 0.5, "(x+5)^2");
-[qxhn, qyhn, qehn] = genData("(x-5)**2", -20, 20, 0.5, "(x-5)^2");
+[qxh, qyh, qeh] = genData("x**2", -5, 5, 0.25, "x^2");
+[qxhp, qyhp, qehp] = genData("(x+2)**2", -5, 5, 0.25, "(x+2)^2");
+[qxhn, qyhn, qehn] = genData("(x-2)**2", -5, 5, 0.25, "(x-2)^2");
 
-[qxvs, qyvs, qevs] = genData("2*(x)**2", -20, 20, 0.5, "2x^2");
-[qxvc, qyvc, qevc] = genData("0.5*(x)**2", -20, 20, 0.5, "0.5x^2");
+[qxvs, qyvs, qevs] = genData("2*(x)**2", -5, 5, 0.25, "2x^2");
+[qxvc, qyvc, qevc] = genData("0.5*(x)**2", -5, 5, 0.25, "0.5x^2");
 
 
-[qxs, qys, qes] = genData("x**2", -20, 20, 0.5, "x^2");
-[qxhc, qyhc, qehc] = genData("(2*x)**2", -20, 20, 0.5, "(2x)^2");
-[qxhs, qyhs, qehs] = genData("(0.5*x)**2", -20, 20, 0.5, "(0.5x)^2");
+[qxs, qys, qes] = genData("x**2", -5, 5, 0.25, "x^2");
+[qxhc, qyhc, qehc] = genData("(2*x)**2", -5, 5, 0.25, "(2x)^2");
+[qxhs, qyhs, qehs] = genData("(0.5*x)**2", -5, 5, 0.25, "(0.5x)^2");
 
 new Chart("qhs", {
     type: "line",
@@ -501,4 +501,336 @@ new Chart("qvs", {
 </script>
 
 ## Polynomials
-<p>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are </p>
+- Polynomials are mathematical expressions consisting of variables and coefficients (Ex: $ax^2 + bx + c$ (quadratic polynomial)). 
+- In a polynomial, each term consists of a variable raised to a non-negative integer exponent, multiplied by real numerical coefficients.
+- The only limitations to polynomials: no negative exponents and complex coefficients.
+
+### Degree of Polynomials:
+The degree of a polynomial is the largest degree amongst all terms. The degree of a singular term can be found by adding all variable exponents in that term.
+
+Ex: what is the degree of $6x^3y^2 + 4x^2y^5 + 3xy + 2$: 
+- Term [$6x^3y^2$] has degree of 3+2: 5
+- Term [$4x^2y^5$] has degree of 2+5: 7
+- Term [$3xy$] has degree of 1+1: 2 
+- Term [2] has degree of 0 
+- Thus, the degree of the polynomial is 7.
+
+### Polynomial Functions
+- Polynomial functions are functions that follow the general structure of a polynomial with 1 variable input (often x).
+- The general form of a polynomial function is:
+$$ a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + a_{n-3}x^{n-3} ... + a_1x + a_0$$
+
+$a_n, a_{n-1}, a_{n-2}...a_0$ are all real numbers and the exponents of x $n, n-1, n-2...$ are all non-negative integers.
+
+#### Domain and Range:
+- The domain of any polynomial function is R.
+- The range of a polynomial function depends on the function itself.
+
+Find the range of: 
+$$ f(x) = -2x^2 + x $$
+$$ h(x) = \frac{1}{x} $$
+$$ k(x) = |x^3| + 2x $$
+$$ g(x) = 3(x-1)^2 - 5 $$
+
+#### Types of Polynomial Functions:
+- A constant function, $f(x) = a$, is a straight, horizontal line with degree 0.
+- A linear function, $f(x) = ax + b$, is a straight (not necessarily horizontal) line. Linear functions have degrees of 1 or less, making a constant function a special case of a linear function.
+- A quadratic function, $f(x) = ax^2 + bx + c$, where $a \ne 0$ forms a parabola, and has a degree of 2.
+- A cubic function, $f(x) = ax^3 + bx^2 + cx + d$, where $a \ne 0$ forms a cubic curve, and has a degree of 3.
+- A quartic function, $f(x) = ax^4 + bx^3 + cx^2 + dx + e$, where $a \ne 0$ can form parabolas, or curves that look like W's or M's. A quartic function has a degree of 4.
+- A quintic function, $f(x) = ax^5 + bx^4 + cx^3 + dx^2 + ex + f$, where $a \ne 0$ form curves resembling that of a cubic function, but with additional minima and maxima.
+
+#### Even vs. Odd Degree
+
+Pretty self-explanatory. Functions with an even degree are referred to as even functions (such as constants (0), quadratics (2), and quartics (4)). Inversely, functions with odd degrees are referred to as odd functions (such as linear functions (1), cubics (3), and quintics (5)). Even and odd functions have different interesting properties. 
+
+#### Forms of Polynomial Functions
+
+**Standard Form:** standard form is the full expanded form of a function ($a_{n}x^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} ... a_1x + a_0 $). In standard form, the degree, leading coefficient, and y-intercepts can be easily identified. 
+
+**Factored Form:** factored form is a function factored by it's roots ($a(x-r_n)(x-r_{n-1})(x-r_{n-2})...(x-r_{0})$). In factored form, the zeros of x ($r_n, r_{n-1}, r_0$) are easily identifiable. The zeros are also known as the x-intercepts (x values for which the function equates to 0).
+
+**Vertex Form:** the vertex form, a form found by completing the square, allows for the vertex (max, or min point or a curve) to be easily identified. Only the quadratic function has a consistent vertex form ($a(x-h)^2 + k$, where (h,k) is the vertex). 
+
+### Power Functions
+
+Power functions are a simplified subset of polynomial functions. A power function is a function in the form of: $f(x) = ax^n$, where $a, n \in R $. The variable $a$ provides the vertical stretch, and thus, points are remapped but the function itself does not translate. 
+
+Understanding the properties of the basic power functions ($f(x) = x^2; f(x) = x^3; f(x) = x^4$) are important. Although even and odd power functions share many of the same properties.
+
+#### Power Function Graphs
+
+<div style="display: flex; justify-content: center">
+<canvas id="x" class="chart-js"></canvas>
+<canvas id="x2" class="chart-js"></canvas>
+<canvas id="x3" class="chart-js"></canvas>
+<canvas id="x4" class="chart-js"></canvas>
+<canvas id="x5" class="chart-js"></canvas>
+<canvas id="x6" class="chart-js"></canvas>
+</div>
+
+There are pretty obvious similarities between functions within their odd and even groups:
+- End Behavior: 
+    - Odd Functions: $x \to \infty; y \to \infty$ and $x \to -\infty; y \to -\infty$
+    - Even Functions: $x \to \infty; y \to \infty$ and $x \to -\infty; y \to \infty$
+- Increasing/Decreasing:
+    - Odd Functions: continuously increasing (all odd functions other than linear become stationary at $x=0$. 
+    - Even Functions: decreasing when {$x \in R; -\infty \ge x < 0$ }, and increasing when {$x \in R; 0 < x \ge \infty $}.
+- Similarities:
+    - The larger the power, the larger the plateau around $x=0$ (when $-1 < x < 1$), as values within this range become smaller when put to the power of $n$. 
+    - Furthermore, as the power increases, each graph becomes steeper and increases faster.
+
+### Characteristics of Polynomial Functions
+
+It's important to go through the relatively basic properties of the most common functions (up to quartics), and mapping characteristical patterns onto certain variables.
+
+### Constant Functions:
+$$ y = a; a \in R $$
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="constant-ex" class="chart-js"></canvas>
+</div>
+
+**Observations:** 
+- Straight, horizontal line 
+- Not increasing, nor decreasing - stationary function
+- Domain and Range: 
+    - $ x \in R; y = a $
+- Unless $y=0$, there are no zeros for the function (in the case of $y=0$, there are infinite zeros).
+
+### Linear Functions:
+$$ y = ax + b; a \ne 0 $$
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="linear-ex" class="chart-js"></canvas>
+</div>
+
+**Observations:**
+- Straight line (with slope of $a$)
+- If $a \gt 0$, it's an increasing function. Else if $a \lt 0$, it's a decreasing function.
+- End Behavior (depends on slope, as mentioned above):
+    - If $a \gt 0$: $x \to \infty$ $y \to \infty$
+    - If $a \lt 0$: $x \to \infty$ $y \to -\infty$
+
+### Quadratic Functions:
+$$ y = ax^2 + bx + c; a \ne 0 $$
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="quadratic-ex" class="chart-js"></canvas>
+</div>
+
+**Observations:**
+- A parabola has one turning point (vertex) which is the absolute minimum or maximum of the curve.
+- The amount of x-intercepts of a parabola depends on the discriminant ($b^2-4ac$):
+    - if the discriminant < 0, there are no x-intercepts.
+    - if the discriminant = 0, there is 1 x-intercept.
+    - if the discriminant < 0, there are 2 x-intercepts.
+- The leading coefficient of a quadratic ($a$) dictates the general image of the curve:
+    - If $a \lt 0$, the curve will open downwards, and the vertex will be an absolute maximum.
+        - As $x \to \infty$ $y \to -\infty$ and as $x \to -\infty$ $y \to -\infty$
+    - If $a \gt 0$, the curve will open upwards, and the vertex will be an absolute minimum.
+        - As $x \to \infty$ $y \to \infty$ and as $x \to -\infty$ $y \to \infty$
+- The range of a quadratic function depends on the amount of horizontal translation (and can be found easily when written in vertex form).
+
+### Cubic Functions:
+$$ y = ax^3 + bx^2 + cx + d; a \ne 0 $$
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="cubic-ex" class="chart-js"></canvas>
+</div>
+
+**Observations:**
+- A cubic function either has no turning points, or 2 turning points. That way, the end behaviors as $x$ tends to infinitesimally large and small domains, the output ($y$) will be opposites.
+    - If a cubic function only had 1 turning point, it'd look like a quadratic function.
+- A cubic function can have up to 3 x-intercepts, depending on the amount of turning points.
+- Like the quadratic function, the leading coefficient dictates the end behaviors of the curve. Like the linear function, a cubic function has opposite end behaviors:
+    - If $a \lt 0$.
+        - As $x \to \infty$ $y \to -\infty$ and as $x \to -\infty$ $y \to \infty$
+    - If $a \gt 0$.
+        - As $x \to \infty$ $y \to \infty$ and as $x \to -\infty$ $y \to -\infty$
+
+### Quintic Functions: 
+$$ y = ax^4 + bx^3 + cx^2 + dx + e; a \ne 0 $$
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="quintic-ex" class="chart-js"></canvas>
+</div>
+
+**Observations:**
+- A quartic function either has 1 turning point, or 3 turning points. That way, the end behaviors as $x$ tends to infinitesimally large and small values are the same.
+- A quartic function can have up to 4 x-intercepts, depending on the amount of turning points.
+- Similar to the quadratic function, a quartic function has the same end behaviors (depending on the leading coefficient):
+    - If $a \lt 0$.
+        - As $x \to \infty$ $y \to -\infty$ and as $x \to -\infty$ $y \to -\infty$
+    - If $a \gt 0$.
+        - As $x \to \infty$ $y \to \infty$ and as $x \to -\infty$ $y \to \infty$
+
+<script>
+    var pl = ["x", "x2", "x3", "x4", "x5", "x6"];
+    [xx, xy, xe] = genData("x**1", -4, 4, 0.25, "Linear (x)");
+    [x2x, x2y, x2e] = genData("x**2", -4, 4, 0.25, "Quadratic (x^2)");
+    [x3x, x3y, x3e] = genData("x**3", -4, 4, 0.25, "Cubic (x^3)");
+    [x4x, x4y, x4e] = genData("x**4", -4, 4, 0.25, "Quartic (x^4)");
+    [x5x, x5y, x5e] = genData("x**5", -4, 4, 0.25, "Quintic (x^5)");
+    [x6x, x6y, x6e] = genData("x**6", -4, 4, 0.25, "Hexic (x^6)");
+    pl.forEach(function(char) {
+        new Chart(char, {
+            type: "line",
+            data: {
+                labels: eval(`${char}x`),
+                datasets: [{
+                    fill: false,
+                    pointRadius: 0,
+                    borderColor: "rgba(255,0,0, 0.5)",
+                    data: eval(`${char}y`),
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        text: eval(`${char}e`),
+                        display: true,
+                        fontSize: 16,
+                    }
+                }
+            }
+        })
+    })
+</script> 
+
+<script>
+    var ex = {
+        "c": "constant-ex",
+        "l": "linear-ex",
+        "q": "quadratic-ex",
+        "cu": "cubic-ex",
+        "qu": "quintic-ex",
+    };
+
+    [cx1, cy1, ce1] = genData("5", -4, 4, 0.25, "y=5");
+    [cx2, cy2, ce2] = genData("10", -4, 4, 0.25, "y=10");
+    [cx3, cy3, ce3] = genData("-5", -4, 4, 0.25, "y=-5");
+
+    [lx1, ly1, le1] = genData("2*x+5", -4, 4, 0.25, "y=2x+5");
+    [lx2, ly2, le2] = genData("-3*x+2", -4, 4, 0.25, "y=-3x+2");
+    [lx3, ly3, le3] = genData("0.5*x-5", -4, 4, 0.25, "y=0.5x-5");
+
+    [qx1, qy1, qe1] = genData("2*x**2-3*x+4", -4, 4, 0.25, "y=2x^2-3x+4");
+    [qx2, qy2, qe2] = genData("-1*x**2-4*x-7", -4, 4, 0.25, "y=-x^2-4x-7");
+    [qx3, qy3, qe3] = genData("x**2-6", -4, 4, 0.25, "y=x^2-6");
+
+    [cux1, cuy1, cue1] = genData("-1*x**3-2*x**2+5*x+6", -4, 4, 0.25, "y=-x^3-2x^2+5x+6");
+    [cux2, cuy2, cue2] = genData("-1*x**3+3*x**2-5*x-2", -4, 4, 0.25, "y=-x^3+3x^2-5x-2");
+    [cux3, cuy3, cue3] = genData("0.5*x**3 + 2*x**2 + 4*x - 7", -4, 4, 0.25, "y=0.5x^3+2x^2+4x-7");
+
+    [qux1, quy1, que1] = genData("x**4 + 3*x**3 + x - 3", -4, 4, 0.25, "y=x^4+3x^3+x-3");
+    [qux2, quy2, que2] = genData("2*x**4 - 0.5*x**3 + 8*x**2 + 3*x - 3", -4, 4, 0.25, "y=2x^4-0.5x^3+8x^2+3x-3");
+    [qux3, quy3, que3] = genData("-1*x**4 - 2*x**3 + 5*x**2 + 6*x", -4, 4, 0.25, "y=-x^4-2x^3+5x^2+6x");
+
+    var maps = Object.keys(ex);
+    for (var i=0; i < maps.length; i++) {
+        new Chart(ex[maps[i]], {
+            type: "line",
+            data: {
+                labels: eval(`${maps[i]}x1`),
+                datasets: [{
+                    label: eval(`${maps[i]}e1`),
+                    data: eval(`${maps[i]}y1`),
+                    borderColor: "red",
+                    pointRadius: 0,
+                    fill: false,
+                }, {
+                    label: eval(`${maps[i]}e2`),
+                    data: eval(`${maps[i]}y2`),
+                    borderColor: "green",
+                    pointRadius: 0,
+                    fill: false,
+                }, {
+                    label: eval(`${maps[i]}e3`),
+                    data: eval(`${maps[i]}y3`),
+                    borderColor: "blue",
+                    pointRadius: 0,
+                    fill: false, 
+                }]
+            }
+        })
+    }
+</script>
+
+### Generalizing Characteristics:
+
+#### An n-th degree polynomial (n % 2 = 0)
+- The end behavior of this function will be similar to that of a parabola, the end behaviors will be the same. Furthermore, the end behaviors depend on the leading coefficient ($a$).
+    - If $a \lt 0$.
+        - As $x \to \infty$ $y \to -\infty$ and as $x \to -\infty$ $y \to -\infty$
+    - If $a \gt 0$.
+        - As $x \to \infty$ $y \to \infty$ and as $x \to -\infty$ $y \to \infty$
+- The function will have an odd number of turning points: starting at 1, and going up to n-1.
+    - A function of degree 4 can have: 1 or 3 turning points (1 to n-1). 
+    - A function of degree 8 can have: 1, 3, 5, or 7 turning points (1 to n-1).
+- The function will have a vertex (absolute minimum or maximum) as the end behaviors are the same.
+- The graph will have a maximum of $n$ x-intercepts (starting from 0).
+
+#### An n-th degree polynomial (n % 2 = 1)
+- The end behavior of this function will be similar to that of a linear line, the end behaviors will be opposite. Furthermore, the end behaviors depend on the leading coefficient ($a$).
+    - If $a \lt 0$.
+        - As $x \to \infty$ $y \to -\infty$ and as $x \to -\infty$ $y \to \infty$
+    - If $a \gt 0$.
+        - As $x \to \infty$ $y \to \infty$ and as $x \to -\infty$ $y \to -\infty$
+- The function will have an even amount of turning points: starting at 0, and going up to n-1.
+    - A function of degree 3 can have: 0, or 2 turning points (1 to n-1).
+    - A function of degree 9 can have: 0, 2, 4, 6, or 8 turning points (1 to n-1).
+    - A polynomial of odd degree doesn't require turning points as the end behaviors tend to opposite sides naturally
+- The function will have at least 1 x-intercept, and a maximum of $n$ x-intercepts. 
+    - The function must have 1 intercept as it tends towards opposite directions, which requires it to cross the x-axis.
+
+### Factored Form and Multiplicity:
+
+Factored form is in the general form of: 
+
+$$ f(x) = k(x-a_1)(x-a_2)(x-a_3)...(x-a_n) $$
+
+where k is a scalar performing the vertical stretch onto the function and $a_1$, $a_2$, $a_3$...$a_n$ are the zeros of the function. Within a function, as mentioned above, there are at most $n$ zeros (x-intercepts).
+
+The **multiplicity** or order of a zero is the amount of times that zero is repeated. If, in factored form, the zero: $(x-a)$ is repeated $n$ times, then the zero $x=a$ is said to have a multiplicity of $n$.
+
+#### Multiplicity Characteristics:
+- The multiplicity $n$ of a zero allows for many interpretations and estimates to be made about the function near the zero
+- If $n=1$, the graph will cross directly through the x-axis at the zero
+- If $n \gt 1$ and $n$ is even, the graph will not cross through the x-axis, but have a turning point and bounce back at the zero.
+- If $n \gt 1$ and $n$ is odd, the graph will cross through the x-axis, but have an inflection point (changes direction) at the zero.
+
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="multiplicity" class="chart-js"></canvas>
+</div>
+
+<script>
+    [mlx, mly, mle] = genData("(x-2)**3*(x-4)**2*(x-1)", 0.75, 4.25, 0.0625, "(x-1)(x-4)^2(x-2)^3");
+    new Chart("multiplicity", {
+        type: "line",
+        data: {
+            labels: mlx,
+            datasets: [{
+                fill: false,
+                pointRadius: 0,
+                borderColor: "rgba(255,0,0, 0.5)",
+                data: mly,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                title: {
+                    text: mle,
+                    display: true,
+                    fontSize: 16,
+                }
+            }
+        }
+    })
+</script>
