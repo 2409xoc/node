@@ -5,7 +5,8 @@
 
 body {
 	margin: auto;
-	font-family: "Inconsolata";
+	font-family: "Courier New", "Courier", monospace;
+  font-size: 95%;
 	max-width: 60%;
 	padding-top: 0.5em;	
 	padding-bottom: 4em;
