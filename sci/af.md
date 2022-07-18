@@ -834,3 +834,6 @@ The **multiplicity** or order of a zero is the amount of times that zero is repe
         }
     })
 </script>
+
+The sunk cost fallacy is truly... annoying. I want to continue, but this quality of note taking is beyond inefficient. I think my notes from this point on are going to be more simple and less informative.
+
