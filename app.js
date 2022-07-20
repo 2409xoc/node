@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 var express = require("express");
 var fs = require("fs");
 var fse = require("fs-extra");
@@ -281,7 +283,7 @@ function cleanUp(dirs) {
 	})
 }
 
-async function basic() {
+async function run() {
 	await read();
 	await bubblesort();
 	await addMarked();
@@ -386,4 +388,4 @@ app.use("*", (req, res) => {
 	}
 })
 
-basic();
+run();

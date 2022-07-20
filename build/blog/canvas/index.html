@@ -10,7 +10,13 @@
 		 
 			<title>Canvas</title>
 		
+		 
+			<script src="/src/scripts/polyfill.min.js?features=es6"></script>
+			<script type="text/x-mathjax-config">MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] }, svg: { fontCache: 'global', };</script>
+			<script type="text/javascript" src="/src/scripts/tex-svg.js"></script>
 		
+     
+			<script src="/src/scripts/chart.min.js"></script>
     
 		 
 			<script src="/src/scripts/mermaid.min.js"></script>
@@ -34,24 +40,120 @@
         <div class="data">
             <h1 style="line-height: 0">Canvas</h1>
             <div class="metadata">
-                <p id="date" class="metadata">[07-09-2022]</p>
+                <p id="date" class="metadata">[07-19-2022]</p>
                 
-                    <p id="count" class="metadata">[3.9 second read][13 words]</p>
+                    <p id="count" class="metadata">[2.1 minute read][428 words]</p>
                 
             </div>
         </div>
     <main>
-        <div class="mermaid">
-    graph TD 
-    A[Client] --> B[Load Balancer] 
-    B --> C[Server1] 
-    B --> D[Server2]
+        <p>Thought I could use a little canvas for testing new features on this site.</p>
+<h2 id="mermaid">Mermaid</h2>
+<p>I got the cool <a href="https://mermaid-js.github.io/mermaid/#/">mermaid</a> flow chart thing going. Good for visualizations, and maps and stuff. </p>
+<p>Heres a little insight on this sites architecture:</p>
+<div class="mermaid">
+  graph LR;
+    A[Pure FUEL] --> B[Scrapped together Node App];
+  B --> C[Static Site];
 </div>
+
+<p>Ok but it&#39;s more like.</p>
+<div class="mermaid">
+    graph LR;
+    A[source]-->B[node app];
+    B-->C[build];
+    C-->D[git];
+    D-->E[nginx];
+</div>
+
+<p>Cool stuff to come with mermaid.</p>
+<h2 id="latex">Latex</h2>
+<p>Don&#39;t you <strong>love</strong> looking at genius scripture that&#39;s absolutely incoherent to a brainlet&#39;s mind? Me too! This right here can be done using <a href="https://mathjax.github.io/MathJax-demos-web/tex-svg.html.html">tex-svg</a> found on MathJax&#39;s demo web.</p>
+<h3 id="the-cauchy-schwarz-inequality-supposedly">The <strong>Cauchy-Schwarz Inequality</strong> (supposedly).</h3>
+<p>\[
+\left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
+ \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+\]</p>
+
+<p>Wow. Look at the numbers. Not crazy enough? You&#39;re right.</p>
+<h3 id="an-beautiful-identity-of-ramanujan">An (Beautiful) Identity of Ramanujan</h3>
+<p>\[ \frac{1}{(\sqrt{\phi \sqrt{5}}-\phi) e^{\frac25 \pi}} =
+         1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
+            {1+\frac{e^{-8\pi}} {1+\ldots} } } }
+\]</p>
+
+
+<p>Wow, it&#39;s so... infinite. No, not wack enough? This poor soul, Ramnujan pours his identity out to you, and you deny it because it&#39;s not sufficiently &quot;wack&quot;. Hmm.... what about.</p>
+<h3 id="fair-bloke-maxwells-equations">Fair Bloke: Maxwell&#39;s Equations</h3>
+<p>
+\begin{align}
+    \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\
+    \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
+    \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
+    \nabla \cdot \vec{\mathbf{B}} &amp; = 0
+\end{align}
+</p>
+
+<p>Brilliant. Perfectly wack.</p>
+<p>Well, that concludes the demonstration of latex. Also, most of my comments on this page are just me being stupid because that&#39;s really what this page is for.</p>
+<h2 id="chartjs">Chart.js</h2>
+<p>Chart.js is honestly, pretty cool. I can&#39;t seem to figure out how to outline the axis (although it&#39;s definitely really simple) but other than that it works really well.</p>
+<p>I don&#39;t really like the fact that you have to generate your own data first, although I don&#39;t really know what I was expecting before.</p>
+<div style="display: flex; justify-content: center">
+<canvas style="max-width: 50%" id="demo" class="chart-js"></canvas>
+</div>
+
+<script>
+function genData(exp, l1, l2, step, desc) {
+    var xd=[], yd=[];
+    for (let x=l1; x <= l2; x+=step) {
+        xd.push(x);
+        yd.push(eval(exp));
+    }
+    return [xd, yd, desc];
+}
+
+[x, y, e] = genData("x**2", -4, 4, 0.25, "x^2 demo");
+
+
+new Chart("demo", {
+        type: "line",
+        data: {
+            labels: x,
+            datasets: [{
+                fill: false,
+                pointRadius: 0,
+                borderColor: "rgba(255,0,0, 0.5)",
+                data: y,
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                title: {
+                    text: e,
+                    display: true,
+                    fontSize: 16,
+                }
+            }
+        }
+    })
+
+</script>
+
+<p>Pretty nice stuff. I can&#39;t help but think that I&#39;m only scratching the surface with all of these js libraries, but I&#39;ll find out when time comes I guess.</p>
 
     </main>
 	<hr>
 		<div class="tags">
 			<p>
+				 
+					<h3 style="padding-bottom: 0.55em" class="tags">Tags: </h3>
+					 
+						<p class="tags"><a href="/category#tech">tech</a></p>
+					
 				 
 			</p>
 		</div>
@@ -60,9 +162,9 @@
 			<h3 style="padding-bottom: 0.55em" class="tags">All Tags: </h3>
 		<p class="tags"><a href="/category">all</a></p>
 		 
-			<p class="tags"><a href="/category#updates">updates</a></p>
-		 
 			<p class="tags"><a href="/category#tech">tech</a></p>
+		 
+			<p class="tags"><a href="/category#updates">updates</a></p>
 		
 		</p>
 	</div>
