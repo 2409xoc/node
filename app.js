@@ -1,5 +1,3 @@
-#!/usr/local/bin/node
-
 var express = require("express");
 var fs = require("fs");
 var fse = require("fs-extra");
