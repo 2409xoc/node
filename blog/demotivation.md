@@ -18,3 +18,5 @@ Shit man, I've been trying to find something interesting to me, but I feel like 
 Don't get me wrong, I think the applicative properties of each of those "hobbies"/"passions" are great. Programming is wonderful for automation, math is great because it's the "language of the universe" and whatnot, and engineering is just so so so interesting, but I don't have the motivation (or the drive) to put in the work, and it's taken me 2 years to realize that.
 
 Worst part is, I don't really know how to fix any of this. Maybe if I just keep pushing I'll find something I actually enjoy, or maybe I'll traverse life without any sense of direction. Both seem equally as fucked.
+
+I have this dumb urge to change everything, and move everything around, just to see if it'll get my motivation juices flowing (spoiler alert: it doesn't). I've done this so many times: rewrites and deletions, and it never really works.
