@@ -14,8 +14,9 @@ const ffs = require('fast-folder-size')
 
 const { getStatusMapping } = require("cucumber/lib/status.js");
 const { create } = require("domain");
+
 var headers = `${__dirname}/${config.dev.headers.split("./")[1]}`;
-var all, dirlist, blog, sci, tags, wait=200;
+var all, dirlist, blog, sci, wait=200;
 
 var app = express(), hostname="http://127.0.0.1", port=3000;
 app.engine("html", require("ejs").renderFile);
@@ -24,7 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 function read() {
 	return new Promise((resolve, reject) => {
 		all = [];
-		dirlist = Object.values(config.readdirs);
+		dirlist = Object.values(config.read);
 		dirlist.forEach(function(dir) {
 			fs.readdir(dir, (err, files) => {
 				if (err) {
@@ -76,29 +77,6 @@ function addMarked() {
 		all.forEach(function(post) {
 			post.htmlbody = marked.parse(post.body);
 		})	
-		setTimeout(resolve, wait);
-	})
-}
-
-function getTags() {
-	return new Promise((resolve, reject) => {
-		tags = {};
-		all.forEach(function(post) {
-			var existing;
-			if (post.attributes.tags) {
-				post.attributes.tags.split(" ").forEach(function(tag) {
-					tag = String(tag);
-					if (tags[tag]) {
-						existing = tags[tag];
-					}
-					else {
-						existing = [];
-					}
-					existing.push([post.attributes.title, post.attributes.link, post.attributes.date])
-					tags[tag] = existing;
-				})
-			}
-		})
 		setTimeout(resolve, wait);
 	})
 }
@@ -164,7 +142,7 @@ function subpages() {
         var i, ejs_template, rendering;
         builds = config.build, vals=Object.values(builds), keys=Object.keys(builds);
         for (i=0; i<vals.length; ++i) {
-            var subpath = vals[i][0], subpage=keys[i], metadata_dict={}, buildpath = `${config.dev.builddir}/${subpage}`, readpath=`${__dirname}${subpath}`;
+            var subpath = vals[i][0], subpage=keys[i], metadata_dict={}, buildpath = `${config.dev.builddir}/${subpage}`, readpath=`${subpath}`;
             // check if file or dir
             if (!!path.extname(readpath) == true) {
 				if (fs.existsSync(readpath)) {
@@ -178,9 +156,6 @@ function subpages() {
 						for (j=0; j<loadvars.length; ++j) {
 							if (loadvars[j] == "blog") {
 								metadata_dict[loadvars[j]] = blog;
-							}
-							else if (loadvars[j] == "tags") {
-								metadata_dict[loadvars[j]] = tags;
 							}
 							else if (loadvars[j] == "sci") {
 								metadata_dict[loadvars[j]] = sci;
@@ -203,8 +178,8 @@ function subpages() {
 				}
             }
             else {
-				if (subpath.includes("/public/")) {
-					buildpath = `${config.dev.builddir}${subpath.split("/public/")[1]}`;
+				if (subpath.includes("./public/")) {
+					buildpath = `${config.dev.builddir}${subpath.split("./public/")[1]}`;
 				}
 				console.log(`copying folder from .${subpath} to ${buildpath}`);
 				fse.copySync(readpath, buildpath, {overwrite: true, recursive: true}, err => {
@@ -245,7 +220,7 @@ function writePosts() {
 				template_path = `./views/blog/post.html`;
 			}
 			ejs_template = fs.readFileSync(template_path, "utf-8");
-			rendering = ejs.render(ejs_template, {post: post, body: marked.parse(post.body), count: count(post.body), tags: tags, headers:headers});
+			rendering = ejs.render(ejs_template, {post: post, body: marked.parse(post.body), count: count(post.body), headers:headers});
 			fs.writeFile(`${config.dev.builddir}${post.attributes.link}/index.html`, rendering, err => {
 				if (err) {
 					throw err;
@@ -286,7 +261,6 @@ async function run() {
 	await read();
 	await bubblesort();
 	await addMarked();
-	await getTags();
 	await split();
 	var args = process.argv.slice(2);
 	if (args[0] && args[0] == "make") {
@@ -307,7 +281,7 @@ async function run() {
 
 app.use("/blog/*", (req, res) => {
 	if (req.baseUrl == "/blog") {
-		res.render("pages/blog.html", {blog:blog, headers: headers, tags: tags});
+		res.render("pages/blog.html", {blog:blog, headers: headers});
 	}
 	else {
 		var template;
@@ -325,7 +299,7 @@ app.use("/blog/*", (req, res) => {
 				else {
 					template = `blog/post.html`;
 				}
-				res.render(template, {post: content, body: body, count: count(body), headers:headers, tags: tags});
+				res.render(template, {post: content, body: body, count: count(body), headers:headers});
 			})
 		}
 		else {

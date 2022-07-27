@@ -20,3 +20,5 @@ Don't get me wrong, I think the applicative properties of each of those "hobbies
 Worst part is, I don't really know how to fix any of this. Maybe if I just keep pushing I'll find something I actually enjoy, or maybe I'll traverse life without any sense of direction. Both seem equally as fucked.
 
 I have this dumb urge to change everything, and move everything around, just to see if it'll get my motivation juices flowing (spoiler alert: it doesn't). I've done this so many times: rewrites and deletions, and it never really works.
+
+Bringing me to my next notion of business: should I completely scrap this site to start over, or maybe just some simple (but required?) rewrites.

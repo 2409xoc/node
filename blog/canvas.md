@@ -5,7 +5,6 @@ date: 07-19-2022
 chart: true
 tex: true
 graph: true
-tags: tech
 ---
 
 Thought I could use a little canvas for testing new features on this site.

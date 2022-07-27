@@ -33,25 +33,5 @@
     <main>
         <%- body %>
     </main>
-	<hr>
-		<div class="tags">
-			<p>
-				<% if (post.attributes.tags) { %> 
-					<h3 style="padding-bottom: 0.55em" class="tags">Tags: </h3>
-					<% (post.attributes.tags.split(" ")).forEach(function(tag) { %> 
-						<p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
-					<% }); %>
-				<% } %> 
-			</p>
-		</div>
-		<div class="tags">
-		<p>
-			<h3 style="padding-bottom: 0.55em" class="tags">All Tags: </h3>
-		<p class="tags"><a href="/category">all</a></p>
-		<% Object.keys(tags).forEach(function(tag) { %> 
-			<p class="tags"><a href="/category#<%= tag %>"><%= tag %></a></p>
-		<% }); %>
-		</p>
-	</div>
 </body>
 </html>

@@ -3,7 +3,6 @@ title: Content
 date: 07-07-2022
 description: Some specifics.
 layout: post
-tags: updates
 ---
 
 I've been developing [pseudohenry.xyz](/) for ~10 days, and although it's not even close to done... or good, it's developed to a point where it should be reasonably effective to host some forms of content. 

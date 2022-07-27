@@ -125,31 +125,6 @@ code {
 	text-align: center;
 }
 
-/* tags */
-
-.tags {
-	display: flex;
-	margin: 0;
-	align-self: flex-end;
-}
-
-.sector h2 {
-	padding-bottom: 0.75em;
-	padding-top: 0.75em;
-}
-
-.tags a {
-    font-weight: bold;
-    color: rgb(135, 206, 225);
-    font-size: 112.5%;
-    text-decoration: none;
-}
-
-.tags a:hover {
-    background-color: rgb(135, 206, 235, 0.2)
-}
-
-
 /* header */
 header {
     text-align: center;
@@ -176,4 +151,17 @@ header .sub {
 header hr {
 	position: relative;
 	bottom: 0.75em;
+}
+
+@media (max-width: 600px) {
+	header h1 {
+		display: none;
+		opacity: 0;
+	}
+	body {
+		float: center;
+	}
+	h1, h2, h3, h4 {
+		line-height: normal;
+	}
 }
