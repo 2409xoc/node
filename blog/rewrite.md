@@ -2,7 +2,6 @@
 title: Rewrite
 description: Rewriting and optimizing my site.
 date: 06-29-2022
-tags: updates
 ---
 
 Welcome to the blog section of **pseudohenry**. Here, I write about whatever first comes to mind.

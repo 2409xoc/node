@@ -42,7 +42,7 @@
             <div class="metadata">
                 <p id="date" class="metadata">[07-19-2022]</p>
                 
-                    <p id="count" class="metadata">[2.1 minute read][428 words]</p>
+                    <p id="count" class="metadata">[1.9 minute read][388 words]</p>
                 
             </div>
         </div>
@@ -50,41 +50,29 @@
         <p>Thought I could use a little canvas for testing new features on this site.</p>
 <h2 id="mermaid">Mermaid</h2>
 <p>I got the cool <a href="https://mermaid-js.github.io/mermaid/#/">mermaid</a> flow chart thing going. Good for visualizations, and maps and stuff. </p>
-<p>Heres a little insight on this sites architecture:</p>
 <div class="mermaid">
   graph LR;
-    A[Pure FUEL] --> B[Scrapped together Node App];
-  B --> C[Static Site];
+
 </div>
 
-<p>Ok but it&#39;s more like.</p>
-<div class="mermaid">
-    graph LR;
-    A[source]-->B[node app];
-    B-->C[build];
-    C-->D[git];
-    D-->E[nginx];
-</div>
-
-<p>Cool stuff to come with mermaid.</p>
+<p>Cool stuff to come with mermaid.... probably (hopefully). It seems like a really cool tool just for general brainstorms which are <strong>beyond</strong> useful.</p>
 <h2 id="latex">Latex</h2>
-<p>Don&#39;t you <strong>love</strong> looking at genius scripture that&#39;s absolutely incoherent to a brainlet&#39;s mind? Me too! This right here can be done using <a href="https://mathjax.github.io/MathJax-demos-web/tex-svg.html.html">tex-svg</a> found on MathJax&#39;s demo web.</p>
-<h3 id="the-cauchy-schwarz-inequality-supposedly">The <strong>Cauchy-Schwarz Inequality</strong> (supposedly).</h3>
+<p>Let&#39;s look at some genius scripture that&#39;s absolutely incoherent to my mind.</p>
+<h3 id="the-cauchy-schwarz-inequality">The Cauchy-Schwarz Inequality:</h3>
 <p>\[
 \left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
  \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 \]</p>
 
-<p>Wow. Look at the numbers. Not crazy enough? You&#39;re right.</p>
-<h3 id="an-beautiful-identity-of-ramanujan">An (Beautiful) Identity of Ramanujan</h3>
+<p>What about... an identity.</p>
+<h3 id="an-identity-of-ramanujan">An Identity of Ramanujan</h3>
 <p>\[ \frac{1}{(\sqrt{\phi \sqrt{5}}-\phi) e^{\frac25 \pi}} =
          1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
             {1+\frac{e^{-8\pi}} {1+\ldots} } } }
 \]</p>
 
-
-<p>Wow, it&#39;s so... infinite. No, not wack enough? This poor soul, Ramnujan pours his identity out to you, and you deny it because it&#39;s not sufficiently &quot;wack&quot;. Hmm.... what about.</p>
-<h3 id="fair-bloke-maxwells-equations">Fair Bloke: Maxwell&#39;s Equations</h3>
+<p>And some equations?</p>
+<h3 id="maxwells-equations">Maxwell&#39;s Equations</h3>
 <p>
 \begin{align}
     \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\
@@ -94,11 +82,10 @@
 \end{align}
 </p>
 
-<p>Brilliant. Perfectly wack.</p>
-<p>Well, that concludes the demonstration of latex. Also, most of my comments on this page are just me being stupid because that&#39;s really what this page is for.</p>
+<p>Well, that concludes the demonstration of latex. It&#39;s a really flexible tool that can be used for a variety of things, though since I&#39;m already using markdown as a markup tool, I won&#39;t need it for much other than... mathematical equations.</p>
 <h2 id="chartjs">Chart.js</h2>
-<p>Chart.js is honestly, pretty cool. I can&#39;t seem to figure out how to outline the axis (although it&#39;s definitely really simple) but other than that it works really well.</p>
-<p>I don&#39;t really like the fact that you have to generate your own data first, although I don&#39;t really know what I was expecting before.</p>
+<p>Chart.js is really cool. One problem: I can&#39;t really seem to figure out how to outline the x and y-axis in black, but other than that it&#39;s been really good for data visualization.</p>
+<p>Although, I don&#39;t really like the fact that you have to generate your own data first, although now that I think about it: there&#39;s no other, efficient way without increasing the size of the Chart.js library. My data generation (just pure math) works client side, so I&#39;m worried that I might generate at an interval too large for someone&#39;s phone or something.</p>
 <div style="display: flex; justify-content: center">
 <canvas style="max-width: 50%" id="demo" class="chart-js"></canvas>
 </div>
@@ -143,7 +130,7 @@ new Chart("demo", {
 
 </script>
 
-<p>Pretty nice stuff. I can&#39;t help but think that I&#39;m only scratching the surface with all of these js libraries, but I&#39;ll find out when time comes I guess.</p>
+<p>Really cool stuff. I can&#39;t help but wonder if I&#39;m only scratching the mere surface with all these libraries, but I guess I can always read the documentation... not.</p>
 
     </main>
 	</body>

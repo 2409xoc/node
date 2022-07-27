@@ -835,5 +835,6 @@ The **multiplicity** or order of a zero is the amount of times that zero is repe
     })
 </script>
 
-The sunk cost fallacy is truly... annoying. I want to continue, but this quality of note taking is beyond inefficient. I think my notes from this point on are going to be more simple and less informative.
+**NOTE:** The sunk cost fallacy is truly... annoying. I want to continue, but this quality of note taking is beyond inefficient. I think my notes from this point on are going to be more simple and less informative.
 
+**UPDATE:** I got kind of sick of typing out notes so I'm writing them out in a Microsoft OneNote which I will then, periodically export and upload. It's more efficient that way. I might try and automate it, if not, it's just going to be manually updated. Furthermore, I might rewrite the typed notes in Microsoft OneNote just to have a more "centered" version of everything.

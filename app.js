@@ -340,7 +340,7 @@ app.use("*", (req, res) => {
 		url = req.baseUrl.split("/")[1];
 	}
 	var config_exist = config.build[url] !== undefined;
-	if (config_exist && (fs.existsSync(`${__dirname}${config.build[url][0]}`))) {
+	if (config_exist && (fs.existsSync(`${config.build[url][0]}`))) {
 		if (config.build[url].length >= 2) {
 			args = config.build[url][1];
 			var i;

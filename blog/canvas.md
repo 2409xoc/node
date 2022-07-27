@@ -13,50 +13,36 @@ Thought I could use a little canvas for testing new features on this site.
 
 I got the cool [mermaid](https://mermaid-js.github.io/mermaid/#/) flow chart thing going. Good for visualizations, and maps and stuff. 
 
-Heres a little insight on this sites architecture:
-
 <div class="mermaid">
   graph LR;
-	A[Pure FUEL] --> B[Scrapped together Node App];
-  B --> C[Static Site];
+
 </div>
 
-Ok but it's more like.
-
-<div class="mermaid">
-    graph LR;
-    A[source]-->B[node app];
-    B-->C[build];
-    C-->D[git];
-    D-->E[nginx];
-</div>
-
-Cool stuff to come with mermaid.
+Cool stuff to come with mermaid.... probably (hopefully). It seems like a really cool tool just for general brainstorms which are **beyond** useful.
 
 ## Latex
 
-Don't you **love** looking at genius scripture that's absolutely incoherent to a brainlet's mind? Me too! This right here can be done using [tex-svg](https://mathjax.github.io/MathJax-demos-web/tex-svg.html.html) found on MathJax's demo web.
+Let's look at some genius scripture that's absolutely incoherent to my mind.
 
-### The **Cauchy-Schwarz Inequality** (supposedly).
+### The Cauchy-Schwarz Inequality:
 
 <p>\[
 \left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
  \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 \]</p>
 
-Wow. Look at the numbers. Not crazy enough? You're right.
+What about... an identity.
 
-### An (Beautiful) Identity of Ramanujan
+### An Identity of Ramanujan
 
 <p>\[ \frac{1}{(\sqrt{\phi \sqrt{5}}-\phi) e^{\frac25 \pi}} =
 		 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}
 			{1+\frac{e^{-8\pi}} {1+\ldots} } } }
 \]</p>
 
+And some equations?
 
-Wow, it's so... infinite. No, not wack enough? This poor soul, Ramnujan pours his identity out to you, and you deny it because it's not sufficiently "wack". Hmm.... what about.
-
-### Fair Bloke: Maxwell's Equations
+### Maxwell's Equations
 
 <p>
 \begin{align}
@@ -67,15 +53,13 @@ Wow, it's so... infinite. No, not wack enough? This poor soul, Ramnujan pours hi
 \end{align}
 </p>
 
-Brilliant. Perfectly wack.
-
-Well, that concludes the demonstration of latex. Also, most of my comments on this page are just me being stupid because that's really what this page is for.
+Well, that concludes the demonstration of latex. It's a really flexible tool that can be used for a variety of things, though since I'm already using markdown as a markup tool, I won't need it for much other than... mathematical equations.
 
 ## Chart.js
 
-Chart.js is honestly, pretty cool. I can't seem to figure out how to outline the axis (although it's definitely really simple) but other than that it works really well.
+Chart.js is really cool. One problem: I can't really seem to figure out how to outline the x and y-axis in black, but other than that it's been really good for data visualization.
 
-I don't really like the fact that you have to generate your own data first, although I don't really know what I was expecting before.
+Although, I don't really like the fact that you have to generate your own data first, although now that I think about it: there's no other, efficient way without increasing the size of the Chart.js library. My data generation (just pure math) works client side, so I'm worried that I might generate at an interval too large for someone's phone or something.
 
 <div style="display: flex; justify-content: center">
 <canvas style="max-width: 50%" id="demo" class="chart-js"></canvas>
@@ -121,4 +105,4 @@ new Chart("demo", {
 
 </script>
 
-Pretty nice stuff. I can't help but think that I'm only scratching the surface with all of these js libraries, but I'll find out when time comes I guess.
+Really cool stuff. I can't help but wonder if I'm only scratching the mere surface with all these libraries, but I guess I can always read the documentation... not.
