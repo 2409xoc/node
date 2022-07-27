@@ -21,7 +21,7 @@ But to be honest, the size isn't truly a problem, I was planning on working on b
 
 The one aspect that I **can** currently complain about is the battery life. It's, in a word, horrible. I've ordered a new 10.8V battery, but I think it's going to be a while before it arrives. Before the battery arrives, there's nothing I can really do other than, stay strapped to my desk (could be worse, though).
 
-![Info](/src/assets/blog/info.png)
+![Info](/src/assets/blog/thinkpad-info.png)
 
 I really enjoy being a possessor of this laptop, although it can be slow at times, I think I just have to orient my usage towards less resource intensive tasks.
 
